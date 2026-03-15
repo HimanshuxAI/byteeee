@@ -110,18 +110,26 @@ export const LandingPage = () => {
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <button onClick={handleLaunchApp} className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[var(--theme-accent)] text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-[var(--theme-accent-dim)] shadow-lg shadow-[var(--theme-accent)]/20 active:scale-95 transition-all">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+              <button 
+                onClick={handleLaunchApp} 
+                className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[var(--theme-accent)] text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-[var(--theme-accent-dim)] shadow-lg shadow-[var(--theme-accent)]/20 active:scale-95 transition-all"
+              >
                 Try PolytraceAi Now
                 <span>→</span>
               </button>
-              <a href="https://github.com/HimanshuxAI/byteeee" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[var(--theme-surface)] border-2 border-[var(--theme-border-default)] text-[var(--theme-text-primary)] px-8 py-4 rounded-xl font-semibold text-lg hover:border-[var(--theme-text-primary)] hover:bg-[var(--theme-hover)] transition-all active:scale-95">
+              <a 
+                href="https://github.com/HimanshuxAI/byteeee" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[var(--theme-surface)] border-2 border-[var(--theme-border-default)] text-[var(--theme-text-primary)] px-8 py-4 rounded-xl font-semibold text-lg hover:border-[var(--theme-text-primary)] hover:bg-[var(--theme-hover)] transition-all active:scale-95"
+              >
                 View on GitHub
               </a>
             </div>
 
             {/* Stats/Social Proof */}
-            <div className="mt-12 flex items-center justify-center gap-6 text-sm text-[var(--theme-text-secondary)] font-medium">
+            <div className="mt-8 flex items-center justify-center gap-6 text-sm text-[var(--theme-text-secondary)] font-medium">
               <div className="flex items-center gap-1.5">
                 <span className="text-[var(--theme-accent)]">✓</span>
                 No signup required
@@ -138,7 +146,7 @@ export const LandingPage = () => {
           </div>
 
           {/* Hero Visual / App Mockup */}
-          <div className="max-w-6xl mx-auto mt-20 px-4">
+          <div className="max-w-6xl mx-auto mt-16 px-4">
             <div className="relative rounded-2xl md:rounded-[2rem] overflow-hidden border border-[var(--theme-border-default)] bg-[var(--theme-surface)] p-2" style={{ boxShadow: '0 12px 32px -4px rgba(31, 35, 40, 0.08)' }}>
               {/* Mac OS style window controls */}
               <div className="flex items-center gap-2 px-4 py-3 bg-[var(--theme-elevated)] border-b border-[var(--theme-border-default)] rounded-t-xl md:rounded-t-[1.75rem]">
@@ -148,7 +156,7 @@ export const LandingPage = () => {
                 <div className="ml-4 text-xs font-mono text-[var(--theme-text-secondary)] flex-1 text-center">app.polytraceai.dev</div>
               </div>
               {/* App Video Demo */}
-              <div className="w-full relative overflow-hidden rounded-b-lg md:rounded-b-[1.5rem] bg-[#0d1117] flex justify-center bg-black">
+              <div className="w-full relative overflow-hidden rounded-b-lg md:rounded-b-[1.5rem] bg-[#0d1117] flex justify-center items-center m-0 p-0 line-height-0">
                 <video
                   src="/demo.mp4"
                   autoPlay
@@ -156,7 +164,7 @@ export const LandingPage = () => {
                   muted
                   playsInline
                   controls
-                  className="w-full h-auto object-contain"
+                  className="w-full h-auto object-contain block m-0 p-0 border-none"
                 />
               </div>
             </div>
