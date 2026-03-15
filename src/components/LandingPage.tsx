@@ -98,15 +98,15 @@ export const LandingPage = () => {
 
             {/* Headline */}
             <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6" style={{ fontFamily: 'Archivo, sans-serif' }}>
-              The Zero-Server <br className="hidden md:block" />
+              Universal Codebase Intelligence <br className="hidden md:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--theme-accent)] to-[var(--theme-accent-dim)]">
-                Code Intelligence
-              </span> Engine.
+                Across Multiple Repositories.
+              </span>
             </h1>
 
             {/* Subheading */}
-            <p className="text-lg md:text-xl text-[var(--theme-text-secondary)] max-w-2xl mx-auto mb-10 leading-relaxed">
-              Drop in a GitHub repo or ZIP file, and instantly get an interactive knowledge graph with a built-in RAG Agent. All running securely in your browser.
+            <p className="text-lg md:text-xl text-[var(--theme-text-secondary)] max-w-2xl mx-auto mb-10 leading-relaxed font-medium">
+              PolytraceAI builds a global dependency graph across your entire codebase, allowing AI agents to reason across services, APIs, and databases instantly.
             </p>
 
             {/* CTAs */}
@@ -128,19 +128,19 @@ export const LandingPage = () => {
               </a>
             </div>
 
-            {/* Stats/Social Proof */}
-            <div className="mt-8 flex items-center justify-center gap-6 text-sm text-[var(--theme-text-secondary)] font-medium">
-              <div className="flex items-center gap-1.5">
-                <span className="text-[var(--theme-accent)]">✓</span>
-                No signup required
+            {/* Stats/Social Proof (Metrics Grid) */}
+            <div className="mt-14 max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6 divide-y sm:divide-y-0 sm:divide-x divide-[var(--theme-border-default)] text-center border-y border-[var(--theme-border-default)] py-6 bg-[var(--theme-surface)]/30 backdrop-blur-sm rounded-2xl shadow-inner">
+              <div className="flex flex-col items-center justify-center px-4">
+                <span className="text-3xl font-extrabold text-[var(--theme-text-primary)] tracking-tight mb-1" style={{ fontFamily: 'Archivo, sans-serif' }}>50k+</span>
+                <span className="text-xs text-[var(--theme-text-secondary)] font-semibold uppercase tracking-wider">Files indexed in seconds</span>
               </div>
-              <div className="flex items-center gap-1.5">
-                <span className="text-[var(--theme-accent)]">✓</span>
-                100% Client-side
+              <div className="flex flex-col items-center justify-center px-4 pt-4 sm:pt-0">
+                <span className="text-3xl font-extrabold text-[var(--theme-text-primary)] tracking-tight mb-1" style={{ fontFamily: 'Archivo, sans-serif' }}>12</span>
+                <span className="text-xs text-[var(--theme-text-secondary)] font-semibold uppercase tracking-wider">Polyglot languages</span>
               </div>
-              <div className="flex items-center gap-1.5">
-                <span className="text-[var(--theme-accent)]">✓</span>
-                Open Source
+              <div className="flex flex-col items-center justify-center px-4 pt-4 sm:pt-0">
+                <span className="text-3xl font-extrabold text-[var(--theme-text-primary)] tracking-tight mb-1" style={{ fontFamily: 'Archivo, sans-serif' }}>&lt;50ms</span>
+                <span className="text-xs text-[var(--theme-text-secondary)] font-semibold uppercase tracking-wider">Cross-repo query latency</span>
               </div>
             </div>
           </div>
@@ -465,46 +465,133 @@ export const LandingPage = () => {
           </div>
         </section>
 
-        {/* Multi-Repo Architecture */}
-        <section className="py-24 px-6 border-b border-[var(--theme-border-default)]">
-          <div className="max-w-4xl mx-auto">
+        {/* Unified Intelligence Architecture */}
+        <section className="py-24 px-6 border-b border-[var(--theme-border-default)] relative overflow-hidden">
+          {/* Subtle background glow for the whole section */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[var(--theme-accent)]/5 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+          
+          <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-5xl font-bold mb-6 text-[var(--theme-text-primary)] tracking-tight" style={{ fontFamily: 'Archivo, sans-serif' }}>Multi-Repo MCP Architecture</h2>
-              <p className="text-[var(--theme-text-secondary)] text-lg max-w-2xl mx-auto">Set up your editors once. PolytracerAI uses a global registry to seamlessly route graph queries to any indexed repository on your machine without restarting your agent.</p>
+              <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-[var(--theme-text-primary)] tracking-tight" style={{ fontFamily: 'Archivo, sans-serif' }}>
+                Unified Intelligence Across Every Repository
+              </h2>
+              <p className="text-[var(--theme-text-secondary)] text-lg md:text-xl max-w-3xl mx-auto font-medium">
+                PolytraceAI builds a global dependency graph across your entire codebase, allowing AI agents to reason across services, APIs, and databases instantly.
+              </p>
             </div>
 
-            <div className="bg-[var(--theme-surface)] border border-[var(--theme-border-default)] rounded-[2rem] p-8 md:p-12 shadow-2xl">
-              <div className="flex flex-col md:flex-row items-center justify-between gap-8 text-center text-sm font-semibold tracking-wide">
-
-                <div className="bg-[var(--theme-elevated)] border border-[var(--theme-border-default)] p-6 rounded-2xl flex-1 w-full relative">
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-[var(--theme-void)] border border-[var(--theme-border-default)] rounded-full text-xs text-[var(--theme-text-secondary)]">Agent</div>
-                  <h4 className="text-[var(--theme-text-primary)] text-lg mb-2">Editor Instance</h4>
-                  <div className="text-[var(--theme-text-secondary)] font-mono text-xs opacity-80 mt-4">Claude / Cursor</div>
+            {/* Architecture Diagram (Larger, 70% focus) */}
+            <div className="w-full md:w-[85%] mx-auto bg-[var(--theme-surface)]/50 backdrop-blur-sm border border-[var(--theme-border-default)] rounded-[2.5rem] p-10 md:p-14 shadow-2xl relative">
+              
+              {/* Top Layer: Editor / Agent */}
+              <div className="flex justify-center mb-6 relative z-10">
+                <div className="bg-[var(--theme-elevated)] border border-[var(--theme-border-default)] px-8 py-4 rounded-2xl shadow-sm">
+                  <h4 className="text-[var(--theme-text-primary)] font-bold text-lg text-center">Editor / AI Agent</h4>
+                  <div className="text-[var(--theme-text-muted)] font-mono text-xs text-center mt-1">Claude Code • Cursor • Roo</div>
                 </div>
+              </div>
 
-                <div className="text-[var(--theme-accent)] animate-pulse">⇌ MCP ⇌</div>
-
-                <div className="bg-[var(--theme-hover)] border-2 border-[var(--theme-accent)] p-6 rounded-2xl flex-1 w-full relative">
-                  <h4 className="text-[var(--theme-text-primary)] text-lg mb-4">PolytracerAI Server</h4>
-                  <div className="flex items-center justify-center gap-2 font-mono text-xs opacity-80 border-t border-[var(--theme-border-subtle)] pt-4 text-[var(--theme-text-secondary)]">Reads ~/.PolytraceAI/registry</div>
+              {/* Protocol Flow */}
+              <div className="flex justify-center my-4 relative z-10">
+                <div className="inline-flex items-center justify-center bg-[var(--theme-void)] border border-[var(--theme-border-subtle)] px-4 py-2 rounded-full font-mono text-xs text-[var(--theme-text-secondary)]">
+                  ↓ <span className="mx-2 text-[var(--theme-accent)] font-semibold">MCP Protocol</span> ↓
                 </div>
+              </div>
 
-                <div className="text-[var(--theme-accent)] animate-pulse">⇌ KuzuDB ⇌</div>
+              {/* Middle Layer: Server */}
+              <div className="flex justify-center mb-6 relative z-10">
+                <div className="bg-[var(--theme-elevated)] border border-[var(--theme-border-default)] px-10 py-4 rounded-2xl shadow-sm">
+                  <h4 className="text-[var(--theme-text-primary)] font-bold text-lg text-center">Polytracer Server</h4>
+                </div>
+              </div>
 
-                <div className="flex flex-col gap-4 flex-1 w-full relative">
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-[var(--theme-void)] border border-[var(--theme-border-default)] rounded-full text-xs text-[var(--theme-text-secondary)]">Local Repos</div>
-                  <div className="bg-[var(--theme-elevated)] border border-[var(--theme-border-default)] p-4 rounded-xl text-[var(--theme-text-primary)] shadow-sm">
-                    Frontend Repo
-                    <div className="text-[var(--theme-text-muted)] text-[10px] mt-1 font-mono">/.PolytraceAI</div>
+              {/* Protocol Flow */}
+              <div className="flex justify-center my-4 relative z-10">
+                <div className="inline-flex items-center justify-center text-[var(--theme-text-secondary)]">
+                  ↓
+                </div>
+              </div>
+
+              {/* THE CORE ENGINE (Visual Center with Glow) */}
+              <div className="flex justify-center mb-6 relative group z-10">
+                <div className="absolute inset-0 bg-gradient-to-r from-[var(--theme-accent)] to-purple-500 rounded-3xl blur-xl opacity-40 group-hover:opacity-60 transition duration-500 animate-pulse-glow"></div>
+                <div className="relative bg-[#1A1E24] border-2 border-[var(--theme-accent)] px-16 py-8 rounded-3xl shadow-[0_0_50px_rgba(29,155,240,0.3)] transform scale-105">
+                  <h3 className="text-white font-extrabold text-2xl text-center tracking-wide" style={{ fontFamily: 'Archivo, sans-serif' }}>
+                    Cross-Repo Graph Engine
+                  </h3>
+                  <div className="flex justify-center mt-3 gap-2">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse delay-75"></span>
+                    <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse delay-150"></span>
                   </div>
-                  <div className="bg-[var(--theme-elevated)] border border-[var(--theme-border-default)] p-4 rounded-xl text-[var(--theme-text-primary)] shadow-sm">
-                    Backend Repo
-                    <div className="text-[var(--theme-text-muted)] text-[10px] mt-1 font-mono">/.PolytraceAI</div>
-                  </div>
                 </div>
+              </div>
 
+              {/* Protocol Flow */}
+              <div className="flex justify-center my-4 relative z-10">
+                <div className="inline-flex items-center justify-center bg-[var(--theme-void)] border border-[var(--theme-border-subtle)] px-4 py-2 rounded-full font-mono text-xs text-[var(--theme-text-secondary)]">
+                  ↓ <span className="mx-2 text-purple-400 font-semibold">Global Dependency Graph</span> ↓
+                </div>
+              </div>
+
+              {/* Bottom Layer: Repositories (Polyglot) */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 relative z-10">
+                <div className="bg-[var(--theme-elevated)] border border-[var(--theme-border-default)] p-4 rounded-xl text-center shadow-md">
+                  <div className="text-xl mb-2">⚛️</div>
+                  <div className="text-[var(--theme-text-primary)] font-bold text-sm">Frontend Repo</div>
+                  <div className="text-[var(--theme-text-muted)] text-[10px] mt-1 font-mono">React / TS</div>
+                </div>
+                <div className="bg-[var(--theme-elevated)] border border-[var(--theme-border-default)] p-4 rounded-xl text-center shadow-md">
+                  <div className="text-xl mb-2">🐍</div>
+                  <div className="text-[var(--theme-text-primary)] font-bold text-sm">Backend Repo</div>
+                  <div className="text-[var(--theme-text-muted)] text-[10px] mt-1 font-mono">FastAPI / Python</div>
+                </div>
+                <div className="bg-[var(--theme-elevated)] border border-[var(--theme-border-default)] p-4 rounded-xl text-center shadow-md">
+                  <div className="text-xl mb-2">🗄️</div>
+                  <div className="text-[var(--theme-text-primary)] font-bold text-sm">Database Schema</div>
+                  <div className="text-[var(--theme-text-muted)] text-[10px] mt-1 font-mono">Prisma / SQL</div>
+                </div>
+                <div className="bg-[var(--theme-elevated)] border border-[var(--theme-border-default)] p-4 rounded-xl text-center shadow-md">
+                  <div className="text-xl mb-2">📄</div>
+                  <div className="text-[var(--theme-text-primary)] font-bold text-sm">API Contracts</div>
+                  <div className="text-[var(--theme-text-muted)] text-[10px] mt-1 font-mono">OpenAPI / GraphQL</div>
+                </div>
               </div>
             </div>
+
+            {/* WHAT THIS UNLOCKS (Capabilities Strip) */}
+            <div className="mt-20">
+              <h3 className="text-sm font-bold text-[var(--theme-text-secondary)] uppercase tracking-[0.2em] text-center mb-10 border-b border-[var(--theme-border-subtle)] pb-4 max-w-xs mx-auto">
+                What This Unlocks
+              </h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div className="bg-[var(--theme-surface)] p-6 rounded-2xl border border-[var(--theme-border-default)] hover:border-[var(--theme-accent)] transition-colors">
+                  <div className="w-12 h-12 bg-red-500/10 text-red-500 rounded-xl flex items-center justify-center text-xl mb-5">💥</div>
+                  <h4 className="text-lg font-bold text-[var(--theme-text-primary)] mb-3">Cross-Repo Blast Radius</h4>
+                  <p className="text-[var(--theme-text-secondary)] text-sm leading-relaxed">
+                    Change one shared API endpoint and instantly see every downstream service, frontend component, and mobile app affected across your entire organization.
+                  </p>
+                </div>
+
+                <div className="bg-[var(--theme-surface)] p-6 rounded-2xl border border-[var(--theme-border-default)] hover:border-[var(--theme-accent)] transition-colors">
+                  <div className="w-12 h-12 bg-[var(--theme-accent)]/10 text-[var(--theme-accent)] rounded-xl flex items-center justify-center text-xl mb-5">🤖</div>
+                  <h4 className="text-lg font-bold text-[var(--theme-text-primary)] mb-3">AI-Queryable Code Graph</h4>
+                  <p className="text-[var(--theme-text-secondary)] text-sm leading-relaxed">
+                    Ask: <span className="font-mono text-[var(--theme-text-primary)] text-xs bg-[var(--theme-elevated)] px-1 py-0.5 rounded">"What breaks if I modify this schema?"</span> Your agent traverses the absolute truth of your system's architecture in milliseconds.
+                  </p>
+                </div>
+
+                <div className="bg-[var(--theme-surface)] p-6 rounded-2xl border border-[var(--theme-border-default)] hover:border-[var(--theme-accent)] transition-colors">
+                  <div className="w-12 h-12 bg-purple-500/10 text-purple-400 rounded-xl flex items-center justify-center text-xl mb-5">🌍</div>
+                  <h4 className="text-lg font-bold text-[var(--theme-text-primary)] mb-3">Polyglot Intelligence</h4>
+                  <p className="text-[var(--theme-text-secondary)] text-sm leading-relaxed">
+                    Universal AST parsing maps Python functions, TypeScript interfaces, Java classes, and SQL tables into one single, semantically unified system graph.
+                  </p>
+                </div>
+              </div>
+            </div>
+
           </div>
         </section>
 
