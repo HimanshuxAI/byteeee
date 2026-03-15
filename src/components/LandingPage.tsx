@@ -156,7 +156,7 @@ export const LandingPage = () => {
                 <div className="ml-4 text-xs font-mono text-[var(--theme-text-secondary)] flex-1 text-center">app.polytraceai.dev</div>
               </div>
               {/* App Video Demo */}
-              <div className="w-full relative overflow-hidden rounded-b-lg md:rounded-b-[1.5rem] aspect-video bg-black flex justify-center items-center">
+              <div className="w-full overflow-hidden rounded-b-lg md:rounded-b-[1.5rem] bg-black flex justify-center items-center m-0 p-0 leading-none shadow-inner border-t border-[var(--theme-border-default)]">
                 <video
                   src="/demo.mp4"
                   autoPlay
@@ -164,7 +164,7 @@ export const LandingPage = () => {
                   muted
                   playsInline
                   controls
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="w-full h-auto object-contain block m-0 p-0"
                 />
               </div>
             </div>
