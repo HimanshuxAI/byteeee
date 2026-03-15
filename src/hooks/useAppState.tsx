@@ -14,7 +14,7 @@ import { DEFAULT_VISIBLE_EDGES, type EdgeType } from '../lib/constants';
 import type { RepoSummary, ConnectToServerResult } from '../services/server-connection';
 import { fetchRepos, connectToServer } from '../services/server-connection';
 
-export type ViewMode = 'landing' | 'onboarding' | 'loading' | 'exploring';
+export type ViewMode = 'landing' | 'onboarding' | 'loading' | 'exploring' | 'docs';
 export type RightPanelTab = 'code' | 'chat';
 export type EmbeddingStatus = 'idle' | 'loading' | 'embedding' | 'indexing' | 'ready' | 'error';
 export type AppTheme = 'dark' | 'white';

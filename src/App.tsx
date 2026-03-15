@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef } from 'react';
 import { AppStateProvider, useAppState } from './hooks/useAppState';
 import { DropZone } from './components/DropZone';
 import { LandingPage } from './components/LandingPage';
+import { DocsPage } from './components/DocsPage';
 import { LoadingOverlay } from './components/LoadingOverlay';
 import { Header } from './components/Header';
 import { GraphCanvas, GraphCanvasHandle } from './components/GraphCanvas';
@@ -243,6 +244,10 @@ const AppContent = () => {
   // Render based on view mode
   if (viewMode === 'landing') {
     return <LandingPage />;
+  }
+
+  if (viewMode === 'docs') {
+    return <DocsPage />;
   }
 
   if (viewMode === 'onboarding') {
