@@ -136,21 +136,24 @@ The pipeline transforms raw source code into a queryable knowledge graph:
 ### Graph Schema
 
 ```mermaid
-erDiagram
-    Folder ||--o{ File : CONTAINS
-    File ||--o{ Function : DEFINES
-    File ||--o{ Class : DEFINES
-    File ||--o{ Interface : DEFINES
-    File ||--o{ Method : DEFINES
-    File ||--o{ File : IMPORTS
-    Function ||--o{ Function : CALLS
-    Method ||--o{ Function : CALLS
-    Class ||--o{ Class : EXTENDS
-    Class ||--o{ Interface : IMPLEMENTS
-    Function }o--|| Community : MEMBER_OF
-    Class }o--|| Community : MEMBER_OF
-    Function }o--|| Process : STEP_IN_PROCESS
-    Method }o--|| Process : STEP_IN_PROCESS
+graph TD
+    Folder -- CONTAINS --> File
+    File -- DEFINES --> Function
+    File -- DEFINES --> Class
+    File -- DEFINES --> Interface
+    File -- DEFINES --> Method
+    File -- IMPORTS --> File
+    Function -- CALLS --> Function
+    Method -- CALLS --> Function
+    Class -- EXTENDS --> Class
+    Class -- IMPLEMENTS --> Interface
+    Function -- MEMBER_OF --> Community
+    Class -- MEMBER_OF --> Community
+    Function -- STEP_IN_PROCESS --> Process
+    Method -- STEP_IN_PROCESS --> Process
+
+    style Community fill:#8b5cf6,color:#fff
+    style Process fill:#06b6d4,color:#fff
 ```
 
 | Node Type | Description | Properties |
