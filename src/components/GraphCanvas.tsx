@@ -178,11 +178,18 @@ export const GraphCanvas = forwardRef<GraphCanvasHandle>((_, ref) => {
         <div
           className="absolute inset-0"
           style={{
+            // CSS variables for easy grid pattern sizing
+            '--grid-size': '40px',
+            '--grid-color': 'rgba(124, 58, 237, 0.08)',
             background: `
-              radial-gradient(circle at 50% 50%, rgba(124, 58, 237, 0.03) 0%, transparent 70%),
+              radial-gradient(circle at 50% 50%, rgba(124, 58, 237, 0.05) 0%, transparent 60%),
+              linear-gradient(var(--grid-color) 1px, transparent 1px),
+              linear-gradient(90deg, var(--grid-color) 1px, transparent 1px),
               linear-gradient(to bottom, #06060a, #0a0a10)
-            `
-          }}
+            `,
+            backgroundSize: '100% 100%, var(--grid-size) var(--grid-size), var(--grid-size) var(--grid-size), 100% 100%',
+            backgroundPosition: 'center center, center center, center center, center center'
+          } as React.CSSProperties}
         />
       </div>
 
