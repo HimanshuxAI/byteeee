@@ -20,15 +20,21 @@ export const LandingPage = () => {
       <header className="sticky top-0 z-50 bg-[var(--theme-surface)]/80 backdrop-blur-md border-b border-[var(--theme-border-subtle)]">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <a href="#" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-lg bg-[var(--theme-elevated)] text-[var(--theme-text-primary)] flex items-center justify-center group-hover:bg-[var(--theme-accent)] group-hover:text-white transition-colors duration-300">
-              <span className="text-xl">◇</span>
+            <div className="w-8 h-8 rounded-lg bg-[var(--theme-elevated)] text-[var(--theme-text-primary)] flex items-center justify-center group-hover:bg-[var(--theme-accent)] group-hover:text-white transition-colors duration-300 border border-[var(--theme-border-subtle)] shadow-inner">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="18" cy="5" r="3"></circle>
+                <circle cx="6" cy="12" r="3"></circle>
+                <circle cx="18" cy="19" r="3"></circle>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+              </svg>
             </div>
             <span className="font-bold text-xl tracking-tight" style={{ fontFamily: 'Archivo, sans-serif' }}>PolytraceAi</span>
           </a>
 
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-sm font-medium text-[var(--theme-text-secondary)] hover:text-[var(--theme-text-primary)] transition-colors">Features</a>
             <a href="#how-it-works" className="text-sm font-medium text-[var(--theme-text-secondary)] hover:text-[var(--theme-text-primary)] transition-colors">How it Works</a>
+            <a href="#features" className="text-sm font-medium text-[var(--theme-text-secondary)] hover:text-[var(--theme-text-primary)] transition-colors">Features</a>
             <a href="#docs" className="text-sm font-medium text-[var(--theme-text-secondary)] hover:text-[var(--theme-text-primary)] transition-colors">Documentation</a>
           </nav>
 
@@ -98,31 +104,31 @@ export const LandingPage = () => {
 
             {/* Headline */}
             <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6" style={{ fontFamily: 'Archivo, sans-serif' }}>
-              Universal Codebase Intelligence <br className="hidden md:block" />
+              One Graph.<br className="hidden md:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--theme-accent)] to-[var(--theme-accent-dim)]">
-                Across Multiple Repositories.
+                Every Repository.
               </span>
             </h1>
 
             {/* Subheading */}
             <p className="text-lg md:text-xl text-[var(--theme-text-secondary)] max-w-2xl mx-auto mb-10 leading-relaxed font-medium">
-              PolytraceAI builds a global dependency graph across your entire codebase, allowing AI agents to reason across services, APIs, and databases instantly.
+              PolytraceAI builds a client-side dependency graph across your entire system, enabling AI agents to reason instantly across services, APIs, and databases—so you can ask questions like <span className="italic text-[var(--theme-text-primary)]">"What breaks if I change this API?"</span>
             </p>
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
               <button 
                 onClick={handleLaunchApp} 
-                className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[var(--theme-accent)] text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-[var(--theme-accent-dim)] shadow-lg shadow-[var(--theme-accent)]/20 active:scale-95 transition-all"
+                className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[var(--theme-accent)] text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[var(--theme-accent-dim)] shadow-lg shadow-[var(--theme-accent)]/20 active:scale-95 transition-all"
               >
-                Try PolytraceAi Now
+                Start Exploring Your Codebase
                 <span>→</span>
               </button>
               <a 
                 href="https://github.com/HimanshuxAI/byteeee" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[var(--theme-surface)] border-2 border-[var(--theme-border-default)] text-[var(--theme-text-primary)] px-8 py-4 rounded-xl font-semibold text-lg hover:border-[var(--theme-text-primary)] hover:bg-[var(--theme-hover)] transition-all active:scale-95"
+                className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[var(--theme-surface)] border-2 border-[var(--theme-border-default)] text-[var(--theme-text-primary)] px-8 py-4 rounded-xl font-bold text-lg hover:border-[var(--theme-text-primary)] hover:bg-[var(--theme-hover)] transition-all active:scale-95"
               >
                 View on GitHub
               </a>
@@ -131,16 +137,16 @@ export const LandingPage = () => {
             {/* Stats/Social Proof (Metrics Grid) */}
             <div className="mt-14 max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6 divide-y sm:divide-y-0 sm:divide-x divide-[var(--theme-border-default)] text-center border-y border-[var(--theme-border-default)] py-6 bg-[var(--theme-surface)]/30 backdrop-blur-sm rounded-2xl shadow-inner">
               <div className="flex flex-col items-center justify-center px-4">
-                <span className="text-3xl font-extrabold text-[var(--theme-text-primary)] tracking-tight mb-1" style={{ fontFamily: 'Archivo, sans-serif' }}>50k+</span>
-                <span className="text-xs text-[var(--theme-text-secondary)] font-semibold uppercase tracking-wider">Files indexed in seconds</span>
+                <span className="text-3xl font-extrabold text-[var(--theme-text-primary)] tracking-tight mb-1" style={{ fontFamily: 'Archivo, sans-serif' }}>50k+ Files</span>
+                <span className="text-xs text-[var(--theme-text-secondary)] font-semibold uppercase tracking-wider">Indexed Instantly</span>
               </div>
               <div className="flex flex-col items-center justify-center px-4 pt-4 sm:pt-0">
-                <span className="text-3xl font-extrabold text-[var(--theme-text-primary)] tracking-tight mb-1" style={{ fontFamily: 'Archivo, sans-serif' }}>12</span>
-                <span className="text-xs text-[var(--theme-text-secondary)] font-semibold uppercase tracking-wider">Polyglot languages</span>
+                <span className="text-3xl font-extrabold text-[var(--theme-text-primary)] tracking-tight mb-1" style={{ fontFamily: 'Archivo, sans-serif' }}>12 Languages</span>
+                <span className="text-xs text-[var(--theme-text-secondary)] font-semibold uppercase tracking-wider">Single Dependency Graph</span>
               </div>
               <div className="flex flex-col items-center justify-center px-4 pt-4 sm:pt-0">
                 <span className="text-3xl font-extrabold text-[var(--theme-text-primary)] tracking-tight mb-1" style={{ fontFamily: 'Archivo, sans-serif' }}>&lt;50ms</span>
-                <span className="text-xs text-[var(--theme-text-secondary)] font-semibold uppercase tracking-wider">Cross-repo query latency</span>
+                <span className="text-xs text-[var(--theme-text-secondary)] font-semibold uppercase tracking-wider">Graph Traversal Time</span>
               </div>
             </div>
           </div>
@@ -739,35 +745,64 @@ export const LandingPage = () => {
         {/* Bottom CTA Section */}
         <section className="py-24 px-4 sm:px-6">
           <div className="max-w-5xl mx-auto relative group">
-            {/* Animated Glow Effect behind the main card */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-[var(--theme-accent)] to-purple-600 rounded-[2.5rem] blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200 animate-pulse-glow"></div>
+            {/* Animated Glow Effect behind the main card (widened horizontally) */}
+            <div className="absolute -inset-2 bg-gradient-to-r from-[var(--theme-accent)] to-purple-600 rounded-[3rem] blur-xl opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200 animate-pulse-glow"></div>
             
-            <div className="relative bg-[var(--theme-elevated)]/90 backdrop-blur-xl rounded-[2.5rem] border border-[var(--theme-border-default)] shadow-2xl p-10 md:p-16 text-center overflow-hidden">
+            <div className="relative bg-[var(--theme-elevated)]/90 backdrop-blur-xl rounded-[2.5rem] border border-[var(--theme-border-default)] shadow-2xl px-6 py-16 md:p-20 text-center overflow-hidden">
               
-              {/* Internal decorative gradients */}
+              {/* Internal decorative gradients & graph visual */}
+              <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, var(--theme-text-primary) 1px, transparent 0)', backgroundSize: '32px 32px' }}></div>
               <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/3 w-96 h-96 bg-[var(--theme-accent)]/20 rounded-full blur-[80px] pointer-events-none"></div>
               <div className="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/3 w-96 h-96 bg-purple-500/10 rounded-full blur-[80px] pointer-events-none"></div>
+
+              {/* Faint Abstract Graph Nodes Behind Text */}
+              <svg className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-5 pointer-events-none" viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                 <circle cx="200" cy="100" r="10" fill="currentColor"/>
+                 <circle cx="600" cy="80" r="15" fill="currentColor"/>
+                 <circle cx="400" cy="300" r="12" fill="currentColor"/>
+                 <circle cx="300" cy="200" r="8" fill="currentColor"/>
+                 <line x1="200" y1="100" x2="300" y2="200" stroke="currentColor" strokeWidth="2"/>
+                 <line x1="300" y1="200" x2="400" y2="300" stroke="currentColor" strokeWidth="2"/>
+                 <line x1="600" y1="80" x2="400" y2="300" stroke="currentColor" strokeWidth="2"/>
+                 <line x1="200" y1="100" x2="600" y2="80" stroke="currentColor" strokeWidth="2" strokeDasharray="4 4"/>
+              </svg>
 
               <div className="relative z-10 flex flex-col items-center">
                 {/* Small Pill Badge */}
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--theme-surface)]/80 border border-[var(--theme-border-subtle)] text-xs font-semibold text-[var(--theme-text-primary)] mb-8 shadow-sm backdrop-blur-md">
-                  🚀 Start exploring in seconds
+                  <span className="text-[var(--theme-accent)]">⚡</span> Index your codebase in seconds
                 </div>
 
-                <h2 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white to-[var(--theme-text-secondary)] mb-6 tracking-tight" style={{ fontFamily: 'Archivo, sans-serif' }}>
-                  Ready to understand <br/> your entire codebase?
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white to-[var(--theme-text-secondary)] mb-6 tracking-tight" style={{ fontFamily: 'Archivo, sans-serif' }}>
+                  Start Exploring Your<br/>Codebase in Seconds
                 </h2>
                 
-                <p className="text-[var(--theme-text-secondary)] text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-medium">
-                  Navigate massive codebases, understand hidden dependencies, and ship changes with confidence.
+                <p className="text-[var(--theme-text-secondary)] text-lg md:text-xl max-w-3xl mx-auto mb-10 leading-relaxed font-medium">
+                  PolytraceAI builds a global dependency graph across your repositories so you can trace dependencies, detect blast radius, and understand your system instantly.
                 </p>
+
+                {/* 3-Point Value Row */}
+                <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-12 w-full max-w-4xl mx-auto">
+                   <div className="flex items-center gap-3 bg-[var(--theme-surface)]/50 px-4 py-2.5 rounded-xl border border-[var(--theme-border-subtle)] shadow-sm backdrop-blur-sm whitespace-nowrap">
+                     <span className="text-xl">⚡</span>
+                     <span className="text-sm font-bold text-[var(--theme-text-primary)] tracking-wide">Index massive repositories instantly</span>
+                   </div>
+                   <div className="flex items-center gap-3 bg-[var(--theme-surface)]/50 px-4 py-2.5 rounded-xl border border-[var(--theme-border-subtle)] shadow-sm backdrop-blur-sm whitespace-nowrap">
+                     <span className="text-xl">🔎</span>
+                     <span className="text-sm font-bold text-[var(--theme-text-primary)] tracking-wide">Trace dependencies across services</span>
+                   </div>
+                   <div className="flex items-center gap-3 bg-[var(--theme-surface)]/50 px-4 py-2.5 rounded-xl border border-[var(--theme-border-subtle)] shadow-sm backdrop-blur-sm whitespace-nowrap">
+                     <span className="text-xl">💥</span>
+                     <span className="text-sm font-bold text-[var(--theme-text-primary)] tracking-wide">Predict blast radius before shipping</span>
+                   </div>
+                </div>
                 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-5 w-full sm:w-auto">
                   <button 
                     onClick={handleLaunchApp} 
-                    className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[var(--theme-accent)] text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[var(--theme-accent-dim)] transition-all shadow-lg shadow-[var(--theme-accent)]/25 hover:shadow-[var(--theme-accent)]/40 hover:-translate-y-1 active:scale-95 border border-white/10"
+                    className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[var(--theme-accent)] text-white px-10 py-5 rounded-xl font-bold text-lg hover:bg-[var(--theme-accent-dim)] transition-all shadow-lg shadow-[var(--theme-accent)]/25 hover:shadow-[var(--theme-accent)]/40 hover:-translate-y-1 active:scale-95 border border-white/10"
                   >
-                    Launch Web App
+                    Explore Your Codebase
                     <span className="group-hover:translate-x-1 transition-transform">→</span>
                   </button>
                   
@@ -775,7 +810,7 @@ export const LandingPage = () => {
                     href="https://github.com/HimanshuxAI/byteeee" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="w-full sm:w-auto flex items-center justify-center gap-3 bg-[var(--theme-surface)] hover:bg-[var(--theme-hover)] border border-[var(--theme-border-default)] hover:border-[var(--theme-text-primary)] text-[var(--theme-text-primary)] px-8 py-4 rounded-xl transition-all shadow-sm hover:shadow-md hover:-translate-y-1 active:scale-95"
+                    className="w-full sm:w-auto flex items-center justify-center gap-3 bg-[var(--theme-surface)] hover:bg-[var(--theme-hover)] border border-[var(--theme-border-default)] hover:border-[var(--theme-text-primary)] text-[var(--theme-text-primary)] px-8 py-5 rounded-xl transition-all shadow-sm hover:shadow-md hover:-translate-y-1 active:scale-95"
                   >
                     <svg height="24" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true" className="fill-current">
                       <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
@@ -786,6 +821,14 @@ export const LandingPage = () => {
                     </div>
                   </a>
                 </div>
+
+                {/* Trust/Credibility Footer */}
+                <div className="mt-12 pt-6 border-t border-[var(--theme-border-subtle)] w-full max-w-lg mx-auto">
+                   <p className="text-[var(--theme-text-secondary)] text-xs md:text-sm font-semibold uppercase tracking-[0.15em] flex items-center justify-center gap-3">
+                     <span>Open-source</span> • <span>Local-first</span> • <span>Built for polyglot codebases</span>
+                   </p>
+                </div>
+
               </div>
             </div>
           </div>
@@ -795,19 +838,31 @@ export const LandingPage = () => {
       {/* Footer */}
       <footer className="border-t border-[var(--theme-border-default)] bg-[var(--theme-surface)] py-12 px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded bg-[var(--theme-elevated)] text-[var(--theme-text-primary)] flex items-center justify-center">
-              <span className="text-sm">◇</span>
+          <div className="flex items-center gap-2 opacity-80 hover:opacity-100 transition-opacity">
+            <div className="w-8 h-8 rounded-lg bg-[var(--theme-elevated)] text-[var(--theme-text-primary)] flex items-center justify-center border border-[var(--theme-border-subtle)] shadow-inner">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="18" cy="5" r="3"></circle>
+                <circle cx="6" cy="12" r="3"></circle>
+                <circle cx="18" cy="19" r="3"></circle>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+              </svg>
             </div>
-            <span className="font-bold text-[var(--theme-text-primary)]" style={{ fontFamily: 'Archivo, sans-serif' }}>PolytraceAi</span>
+            <span className="font-bold text-[var(--theme-text-primary)] text-lg" style={{ fontFamily: 'Archivo, sans-serif' }}>PolytraceAi</span>
           </div>
-          <div className="flex gap-6 text-sm font-medium text-[var(--theme-text-secondary)]">
+          <div className="flex flex-wrap items-center justify-center gap-8 text-sm font-semibold text-[var(--theme-text-secondary)]">
+            <a href="https://github.com/HimanshuxAI/byteeee" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--theme-text-primary)] transition-colors flex items-center gap-1.5">
+              <svg height="16" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" className="fill-current">
+                <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+              </svg>
+              GitHub
+            </a>
             <a href="#docs" className="hover:text-[var(--theme-text-primary)] transition-colors">Documentation</a>
             <a href="#" className="hover:text-[var(--theme-text-primary)] transition-colors">Changelog</a>
             <a href="https://github.com/HimanshuxAI/byteeee/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--theme-text-primary)] transition-colors">License</a>
           </div>
-          <div className="text-sm text-gray-400">
-            &copy; 2024 PolytraceAi Contributors.
+          <div className="text-sm font-medium text-[var(--theme-text-muted)]">
+            &copy; 2024 PolytraceAi.
           </div>
         </div>
       </footer>
