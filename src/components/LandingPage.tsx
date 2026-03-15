@@ -540,30 +540,55 @@ export const LandingPage = () => {
         </section>
 
         {/* Bottom CTA Section */}
-        <section className="py-24 px-6">
-          <div className="max-w-5xl mx-auto bg-[var(--theme-elevated)] rounded-[2.5rem] border border-[var(--theme-border-default)] p-10 md:p-16 text-center relative overflow-hidden">
-            {/* Decorative blur behind CTA */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-blue-600/20 to-purple-600/20 blur-3xl rounded-full pointer-events-none"></div>
+        <section className="py-24 px-4 sm:px-6">
+          <div className="max-w-5xl mx-auto relative group">
+            {/* Animated Glow Effect behind the main card */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-[var(--theme-accent)] to-purple-600 rounded-[2.5rem] blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200 animate-pulse-glow"></div>
+            
+            <div className="relative bg-[var(--theme-elevated)]/90 backdrop-blur-xl rounded-[2.5rem] border border-[var(--theme-border-default)] shadow-2xl p-10 md:p-16 text-center overflow-hidden">
+              
+              {/* Internal decorative gradients */}
+              <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/3 w-96 h-96 bg-[var(--theme-accent)]/20 rounded-full blur-[80px] pointer-events-none"></div>
+              <div className="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/3 w-96 h-96 bg-purple-500/10 rounded-full blur-[80px] pointer-events-none"></div>
 
-            <div className="relative z-10">
-              <h2 className="text-3xl md:text-5xl font-bold text-[var(--theme-text-primary)] mb-6 tracking-tight" style={{ fontFamily: 'Archivo, sans-serif' }}>
-                Ready to master your codebase?
-              </h2>
-              <p className="text-[var(--theme-text-secondary)] text-lg max-w-2xl mx-auto mb-10">
-                Join developers using PolytraceAi to navigate complex repositories, understand legacy code, and accelerate onboarding.
-              </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <button onClick={handleLaunchApp} className="w-full sm:w-auto bg-[var(--theme-surface)] text-[var(--theme-text-primary)] px-8 py-4 rounded-xl font-semibold text-lg hover:bg-[var(--theme-hover)] transition-colors shadow-lg active:scale-95">
-                  Launch Web App
-                </button>
-                <a href="https://github.com/HimanshuxAI/byteeee" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto flex items-center justify-center gap-3 bg-[var(--theme-surface)]/10 hover:bg-[var(--theme-surface)]/20 border border-[var(--theme-border-default)] text-[var(--theme-text-primary)] px-6 py-4 rounded-xl font-semibold transition-all backdrop-blur-sm active:scale-95">
-                  <div className="flex flex-col items-start">
-                    <span className="text-xs text-[var(--theme-text-secondary)] font-normal leading-none mb-1">Star on GitHub</span>
-                    <span className="leading-none flex items-center gap-1">
-                      PolytraceAi
-                    </span>
-                  </div>
-                </a>
+              <div className="relative z-10 flex flex-col items-center">
+                {/* Small Pill Badge */}
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--theme-surface)]/80 border border-[var(--theme-border-subtle)] text-xs font-semibold text-[var(--theme-text-primary)] mb-8 shadow-sm backdrop-blur-md">
+                  🚀 Start exploring in seconds
+                </div>
+
+                <h2 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white to-[var(--theme-text-secondary)] mb-6 tracking-tight" style={{ fontFamily: 'Archivo, sans-serif' }}>
+                  Ready to master <br/> your codebase?
+                </h2>
+                
+                <p className="text-[var(--theme-text-secondary)] text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-medium">
+                  Join developers using PolytraceAi to navigate complex repositories, understand legacy code, and accelerate onboarding. No credit card, no servers.
+                </p>
+                
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-5 w-full sm:w-auto">
+                  <button 
+                    onClick={handleLaunchApp} 
+                    className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[var(--theme-accent)] text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[var(--theme-accent-dim)] transition-all shadow-lg shadow-[var(--theme-accent)]/25 hover:shadow-[var(--theme-accent)]/40 hover:-translate-y-1 active:scale-95 border border-white/10"
+                  >
+                    Launch Web App
+                    <span className="group-hover:translate-x-1 transition-transform">→</span>
+                  </button>
+                  
+                  <a 
+                    href="https://github.com/HimanshuxAI/byteeee" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="w-full sm:w-auto flex items-center justify-center gap-3 bg-[var(--theme-surface)] hover:bg-[var(--theme-hover)] border border-[var(--theme-border-default)] hover:border-[var(--theme-text-primary)] text-[var(--theme-text-primary)] px-8 py-4 rounded-xl transition-all shadow-sm hover:shadow-md hover:-translate-y-1 active:scale-95"
+                  >
+                    <svg height="24" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true" className="fill-current">
+                      <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+                    </svg>
+                    <div className="flex flex-col items-start justify-center">
+                      <span className="text-[10px] text-[var(--theme-text-secondary)] font-semibold uppercase tracking-wider leading-none mb-1">Star on GitHub</span>
+                      <span className="leading-none font-bold text-base">PolytraceAi</span>
+                    </div>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
