@@ -4,6 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 import wasm from 'vite-plugin-wasm';
 import topLevelAwait from 'vite-plugin-top-level-await';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
+import { nodePolyfills } from 'vite-plugin-node-polyfills';
 import path from 'path';
 
 export default defineConfig({
@@ -12,6 +13,14 @@ export default defineConfig({
     tailwindcss(),
     wasm(),
     topLevelAwait(),
+    nodePolyfills({
+      include: ['path', 'stream', 'util', 'fs', 'events', 'buffer'],
+      globals: {
+        Buffer: true,
+        global: true,
+        process: true,
+      },
+    }),
     // Copy kuzu-wasm worker file to assets folder for production
     viteStaticCopy({
       targets: [
