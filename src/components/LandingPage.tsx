@@ -17,9 +17,9 @@ export const LandingPage = () => {
       <div className="absolute top-[20%] right-[-5%] w-[30%] h-[30%] rounded-full bg-slate-50/80 blur-3xl -z-10 pointer-events-none"></div>
 
       {/* Navigation */}
-      <header className="sticky top-0 z-50 bg-[var(--theme-surface)]/80 backdrop-blur-md border-b border-[var(--theme-border-subtle)]">
+      <header className="fixed top-0 w-full z-50 bg-[var(--theme-surface)]/80 backdrop-blur-md border-b border-[var(--theme-border-subtle)] transition-all">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <a href="#" className="flex items-center gap-2 group">
+          <a href="#" className="flex items-center gap-3 group">
             <div className="w-8 h-8 rounded-lg bg-[var(--theme-elevated)] text-[var(--theme-text-primary)] flex items-center justify-center group-hover:bg-[var(--theme-accent)] group-hover:text-white transition-colors duration-300 border border-[var(--theme-border-subtle)] shadow-inner">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="18" cy="5" r="3"></circle>
@@ -29,60 +29,24 @@ export const LandingPage = () => {
                 <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
               </svg>
             </div>
-            <span className="font-bold text-xl tracking-tight" style={{ fontFamily: 'Archivo, sans-serif' }}>PolytraceAi</span>
+            <div className="flex flex-col">
+              <span className="font-bold text-xl leading-none tracking-tight" style={{ fontFamily: 'Archivo, sans-serif' }}>PolytraceAi</span>
+              <span className="text-[10px] text-[var(--theme-text-secondary)] font-medium leading-none mt-1">Dependency Graph Intelligence</span>
+            </div>
           </a>
 
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#how-it-works" className="text-sm font-medium text-[var(--theme-text-secondary)] hover:text-[var(--theme-text-primary)] transition-colors">How it Works</a>
             <a href="#features" className="text-sm font-medium text-[var(--theme-text-secondary)] hover:text-[var(--theme-text-primary)] transition-colors">Features</a>
-            <a href="#docs" className="text-sm font-medium text-[var(--theme-text-secondary)] hover:text-[var(--theme-text-primary)] transition-colors">Documentation</a>
+            <a href="#how-it-works" className="text-sm font-medium text-[var(--theme-text-secondary)] hover:text-[var(--theme-text-primary)] transition-colors">How it Works</a>
+            <a href="#docs" onClick={(e) => { e.preventDefault(); setViewMode('docs'); }} className="text-sm font-medium text-[var(--theme-text-secondary)] hover:text-[var(--theme-text-primary)] transition-colors">Docs</a>
           </nav>
 
           <div className="flex items-center gap-4 relative">
             <a href="https://github.com/HimanshuxAI/byteeee" target="_blank" rel="noopener noreferrer" className="hidden sm:flex items-center gap-2 text-sm font-medium text-[var(--theme-text-secondary)] hover:text-[var(--theme-text-primary)] transition-colors">
-              <span>Star us</span>
+              <span>⭐ GitHub <span className="font-mono text-xs opacity-80 pl-1">1.2k</span></span>
             </a>
 
-            {/* Theme Switcher Toggle */}
-            <div className="relative">
-              <button
-                onClick={() => setIsThemeMenuOpen(!isThemeMenuOpen)}
-                className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-[var(--theme-border-default)] hover:border-[var(--theme-text-primary)] bg-[var(--theme-surface)] text-[var(--theme-text-primary)] text-sm transition-all shadow-sm"
-                title="Change Theme"
-              >
-                <div className="flex items-center gap-1.5">
-                  <div className={`w-3 h-3 rounded-full ${theme === 'dark' ? 'bg-[#1D9BF0]' :
-                    'bg-[#d97706]'
-                    }`} />
-                  <span className="capitalize hidden sm:block">{theme.replace('-dark', '').replace('-light', '')}</span>
-                </div>
-              </button>
-
-              {/* Theme Dropdown Menu */}
-              {isThemeMenuOpen && (
-                <div className="absolute top-12 right-0 w-40 rounded-xl border border-[var(--theme-border-subtle)] bg-[var(--theme-elevated)] shadow-lg overflow-hidden flex flex-col z-50 animate-fade-in text-sm">
-                  {(['dark', 'white'] as AppTheme[]).map((t) => (
-                    <button
-                      key={t}
-                      onClick={() => {
-                        setTheme(t);
-                        setIsThemeMenuOpen(false);
-                      }}
-                      className={`flex items-center gap-3 px-4 py-3 hover:bg-[var(--theme-hover)] transition-colors ${theme === t ? 'bg-[var(--theme-hover)]' : ''}`}
-                    >
-                      <div className={`w-3 h-3 rounded-full ${t === 'dark' ? 'bg-[#1D9BF0]' :
-                        'bg-[#d97706]'
-                        }`} />
-                      <span className="capitalize text-[var(--theme-text-primary)] font-medium text-left">
-                        {t.replace('-dark', '').replace('-light', '')}
-                      </span>
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            <button onClick={handleLaunchApp} className="bg-[var(--theme-accent)] text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[var(--theme-accent-dim)] transition-colors shadow-sm active:scale-95">
+            <button onClick={handleLaunchApp} className="bg-blue-500 text-white px-5 py-2 rounded-lg text-sm font-bold hover:bg-blue-400 transition-colors shadow-[0_0_15px_rgba(59,130,246,0.3)] active:scale-95">
               Open App
             </button>
           </div>
@@ -836,33 +800,40 @@ export const LandingPage = () => {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-[var(--theme-border-default)] bg-[var(--theme-surface)] py-12 px-6">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-2 opacity-80 hover:opacity-100 transition-opacity">
-            <div className="w-8 h-8 rounded-lg bg-[var(--theme-elevated)] text-[var(--theme-text-primary)] flex items-center justify-center border border-[var(--theme-border-subtle)] shadow-inner">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="18" cy="5" r="3"></circle>
-                <circle cx="6" cy="12" r="3"></circle>
-                <circle cx="18" cy="19" r="3"></circle>
-                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-              </svg>
+      <footer className="border-t border-[var(--theme-border-default)] bg-[var(--theme-surface)] py-16 px-6 relative overflow-hidden">
+        {/* Subtle background glow */}
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-[var(--theme-accent)]/5 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+
+        <div className="max-w-7xl mx-auto flex flex-col items-center justify-center text-center gap-8 z-10 relative">
+          
+          <div className="flex flex-col items-center gap-3">
+            <div className="flex items-center gap-2 opacity-90 hover:opacity-100 transition-opacity">
+              <div className="w-8 h-8 rounded-lg bg-[var(--theme-elevated)] text-[var(--theme-text-primary)] flex items-center justify-center border border-[var(--theme-border-subtle)] shadow-inner">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="18" cy="5" r="3"></circle>
+                  <circle cx="6" cy="12" r="3"></circle>
+                  <circle cx="18" cy="19" r="3"></circle>
+                  <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                  <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                </svg>
+              </div>
+              <span className="font-bold text-[var(--theme-text-primary)] text-xl tracking-tight" style={{ fontFamily: 'Archivo, sans-serif' }}>PolytraceAi</span>
             </div>
-            <span className="font-bold text-[var(--theme-text-primary)] text-lg" style={{ fontFamily: 'Archivo, sans-serif' }}>PolytraceAi</span>
+            <p className="text-sm md:text-base font-medium text-[var(--theme-text-secondary)]">Dependency Graph Intelligence for Polyglot Codebases</p>
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-8 text-sm font-semibold text-[var(--theme-text-secondary)]">
-            <a href="https://github.com/HimanshuxAI/byteeee" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--theme-text-primary)] transition-colors flex items-center gap-1.5">
-              <svg height="16" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" className="fill-current">
-                <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
-              </svg>
+          
+          <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-4 text-sm font-semibold text-[var(--theme-text-secondary)] mt-2">
+            <a href="https://github.com/HimanshuxAI/byteeee" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--theme-text-primary)] transition-colors flex items-center gap-2">
               GitHub
             </a>
-            <a href="#docs" className="hover:text-[var(--theme-text-primary)] transition-colors">Documentation</a>
+            <a href="#docs" onClick={(e) => { e.preventDefault(); setViewMode('docs'); }} className="hover:text-[var(--theme-text-primary)] transition-colors">Docs</a>
             <a href="#" className="hover:text-[var(--theme-text-primary)] transition-colors">Changelog</a>
             <a href="https://github.com/HimanshuxAI/byteeee/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--theme-text-primary)] transition-colors">License</a>
           </div>
-          <div className="text-sm font-medium text-[var(--theme-text-muted)]">
-            &copy; 2024 PolytraceAi.
+          
+          <div className="text-sm font-medium text-[var(--theme-text-muted)] mt-4">
+            &copy; 2026 PolytraceAi.
           </div>
         </div>
       </footer>
