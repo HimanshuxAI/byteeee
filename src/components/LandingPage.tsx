@@ -473,18 +473,18 @@ export const LandingPage = () => {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-[var(--theme-text-primary)] tracking-tight" style={{ fontFamily: 'Archivo, sans-serif' }}>
-                Unified Intelligence Across Every Repository
+                One Graph. Every Repository.
               </h2>
               <p className="text-[var(--theme-text-secondary)] text-lg md:text-xl max-w-3xl mx-auto font-medium">
-                PolytraceAI builds a global dependency graph across your entire codebase, allowing AI agents to reason across services, APIs, and databases instantly.
+                PolytraceAI turns scattered repositories into a single dependency graph that AI agents can query instantly.
               </p>
             </div>
 
-            {/* Architecture Diagram (Larger, 70% focus) */}
-            <div className="w-full md:w-[85%] mx-auto bg-[var(--theme-surface)]/50 backdrop-blur-sm border border-[var(--theme-border-default)] rounded-[2.5rem] p-10 md:p-14 shadow-2xl relative">
+            {/* Architecture Diagram (Larger, 70% focus, tightened flow) */}
+            <div className="w-full md:w-[85%] mx-auto bg-[var(--theme-surface)]/50 backdrop-blur-sm border border-[var(--theme-border-default)] rounded-[2.5rem] p-8 md:p-12 shadow-2xl relative">
               
               {/* Top Layer: Editor / Agent */}
-              <div className="flex justify-center mb-6 relative z-10">
+              <div className="flex justify-center mb-3 relative z-10">
                 <div className="bg-[var(--theme-elevated)] border border-[var(--theme-border-default)] px-8 py-4 rounded-2xl shadow-sm">
                   <h4 className="text-[var(--theme-text-primary)] font-bold text-lg text-center">Editor / AI Agent</h4>
                   <div className="text-[var(--theme-text-muted)] font-mono text-xs text-center mt-1">Claude Code • Cursor • Roo</div>
@@ -492,71 +492,84 @@ export const LandingPage = () => {
               </div>
 
               {/* Protocol Flow */}
-              <div className="flex justify-center my-4 relative z-10">
-                <div className="inline-flex items-center justify-center bg-[var(--theme-void)] border border-[var(--theme-border-subtle)] px-4 py-2 rounded-full font-mono text-xs text-[var(--theme-text-secondary)]">
+              <div className="flex justify-center my-2 relative z-10">
+                <div className="inline-flex items-center justify-center bg-[var(--theme-void)] border border-[var(--theme-border-subtle)] px-4 py-1.5 rounded-full font-mono text-xs text-[var(--theme-text-secondary)]">
                   ↓ <span className="mx-2 text-[var(--theme-accent)] font-semibold">MCP Protocol</span> ↓
                 </div>
               </div>
 
-              {/* Middle Layer: Server */}
-              <div className="flex justify-center mb-6 relative z-10">
-                <div className="bg-[var(--theme-elevated)] border border-[var(--theme-border-default)] px-10 py-4 rounded-2xl shadow-sm">
-                  <h4 className="text-[var(--theme-text-primary)] font-bold text-lg text-center">Polytracer Server</h4>
-                </div>
-              </div>
+              {/* THE CORE ENGINE (Unified Block) */}
+              <div className="flex justify-center mb-3 mt-4 relative group z-10">
+                <div className="absolute -inset-2 bg-gradient-to-r from-[var(--theme-accent)] to-purple-500 rounded-3xl blur-xl opacity-30 group-hover:opacity-60 transition duration-1000 animate-pulse-glow"></div>
+                <div className="relative bg-[#1A1E24] border-2 border-[var(--theme-accent)] w-full max-w-md rounded-3xl shadow-[0_0_50px_rgba(29,155,240,0.2)] overflow-hidden">
+                  
+                  {/* Internal top header representing the server bounding */}
+                  <div className="bg-[var(--theme-void)] border-b border-[var(--theme-border-subtle)] px-6 py-3 flex items-center justify-between">
+                     <span className="font-mono text-xs text-[var(--theme-text-secondary)] tracking-wider">Polytracer Server</span>
+                     <div className="flex gap-1.5">
+                       <span className="w-2 h-2 rounded-full bg-[var(--theme-accent)]/80 animate-pulse"></span>
+                     </div>
+                  </div>
 
-              {/* Protocol Flow */}
-              <div className="flex justify-center my-4 relative z-10">
-                <div className="inline-flex items-center justify-center text-[var(--theme-text-secondary)]">
-                  ↓
-                </div>
-              </div>
-
-              {/* THE CORE ENGINE (Visual Center with Glow) */}
-              <div className="flex justify-center mb-6 relative group z-10">
-                <div className="absolute inset-0 bg-gradient-to-r from-[var(--theme-accent)] to-purple-500 rounded-3xl blur-xl opacity-40 group-hover:opacity-60 transition duration-500 animate-pulse-glow"></div>
-                <div className="relative bg-[#1A1E24] border-2 border-[var(--theme-accent)] px-16 py-8 rounded-3xl shadow-[0_0_50px_rgba(29,155,240,0.3)] transform scale-105">
-                  <h3 className="text-white font-extrabold text-2xl text-center tracking-wide" style={{ fontFamily: 'Archivo, sans-serif' }}>
-                    Cross-Repo Graph Engine
-                  </h3>
-                  <div className="flex justify-center mt-3 gap-2">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                    <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse delay-75"></span>
-                    <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse delay-150"></span>
+                  {/* Internal core capabilities */}
+                  <div className="px-12 py-10 text-center">
+                    <h3 className="text-white font-extrabold text-2xl tracking-wide mb-3" style={{ fontFamily: 'Archivo, sans-serif' }}>
+                      Polytrace Engine
+                    </h3>
+                    <div className="flex items-center justify-center gap-2 text-sm text-[var(--theme-text-secondary)] font-medium bg-black/30 rounded-full px-4 py-1.5 border border-white/5 inline-flex mb-4">
+                       <span className="text-[var(--theme-accent)]">⚡</span> Cross-Repo Graph
+                    </div>
+                    <div className="flex justify-center mt-2 gap-2">
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                      <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse delay-75"></span>
+                      <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse delay-150"></span>
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* Protocol Flow */}
-              <div className="flex justify-center my-4 relative z-10">
-                <div className="inline-flex items-center justify-center bg-[var(--theme-void)] border border-[var(--theme-border-subtle)] px-4 py-2 rounded-full font-mono text-xs text-[var(--theme-text-secondary)]">
-                  ↓ <span className="mx-2 text-purple-400 font-semibold">Global Dependency Graph</span> ↓
+              <div className="flex justify-center my-3 relative z-10">
+                <div className="inline-flex items-center justify-center bg-[var(--theme-void)] border border-[var(--theme-border-subtle)] px-4 py-1.5 rounded-full font-mono text-xs text-[var(--theme-text-secondary)]">
+                  ↓ <span className="mx-2 text-purple-400 font-semibold">Dependency Context</span> ↓
                 </div>
               </div>
 
               {/* Bottom Layer: Repositories (Polyglot) */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 relative z-10">
-                <div className="bg-[var(--theme-elevated)] border border-[var(--theme-border-default)] p-4 rounded-xl text-center shadow-md">
-                  <div className="text-xl mb-2">⚛️</div>
-                  <div className="text-[var(--theme-text-primary)] font-bold text-sm">Frontend Repo</div>
-                  <div className="text-[var(--theme-text-muted)] text-[10px] mt-1 font-mono">React / TS</div>
+              <div className="mt-6 relative z-10">
+                <div className="text-center mb-4">
+                  <span className="text-xs font-bold text-[var(--theme-text-secondary)] uppercase tracking-[0.15em]">Indexed Sources of Truth</span>
                 </div>
-                <div className="bg-[var(--theme-elevated)] border border-[var(--theme-border-default)] p-4 rounded-xl text-center shadow-md">
-                  <div className="text-xl mb-2">🐍</div>
-                  <div className="text-[var(--theme-text-primary)] font-bold text-sm">Backend Repo</div>
-                  <div className="text-[var(--theme-text-muted)] text-[10px] mt-1 font-mono">FastAPI / Python</div>
-                </div>
-                <div className="bg-[var(--theme-elevated)] border border-[var(--theme-border-default)] p-4 rounded-xl text-center shadow-md">
-                  <div className="text-xl mb-2">🗄️</div>
-                  <div className="text-[var(--theme-text-primary)] font-bold text-sm">Database Schema</div>
-                  <div className="text-[var(--theme-text-muted)] text-[10px] mt-1 font-mono">Prisma / SQL</div>
-                </div>
-                <div className="bg-[var(--theme-elevated)] border border-[var(--theme-border-default)] p-4 rounded-xl text-center shadow-md">
-                  <div className="text-xl mb-2">📄</div>
-                  <div className="text-[var(--theme-text-primary)] font-bold text-sm">API Contracts</div>
-                  <div className="text-[var(--theme-text-muted)] text-[10px] mt-1 font-mono">OpenAPI / GraphQL</div>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  <div className="bg-[var(--theme-elevated)] border border-[var(--theme-border-default)] p-4 rounded-xl text-center shadow-md">
+                    <div className="text-xl mb-2">⚛️</div>
+                    <div className="text-[var(--theme-text-primary)] font-bold text-sm">Frontend Repo</div>
+                    <div className="text-[var(--theme-text-muted)] text-[10px] mt-1 font-mono">React / TS</div>
+                  </div>
+                  <div className="bg-[var(--theme-elevated)] border border-[var(--theme-border-default)] p-4 rounded-xl text-center shadow-md">
+                    <div className="text-xl mb-2">🐍</div>
+                    <div className="text-[var(--theme-text-primary)] font-bold text-sm">Backend Repo</div>
+                    <div className="text-[var(--theme-text-muted)] text-[10px] mt-1 font-mono">FastAPI / Python</div>
+                  </div>
+                  <div className="bg-[var(--theme-elevated)] border border-[var(--theme-border-default)] p-4 rounded-xl text-center shadow-md">
+                    <div className="text-xl mb-2">🗄️</div>
+                    <div className="text-[var(--theme-text-primary)] font-bold text-sm">Database Schema</div>
+                    <div className="text-[var(--theme-text-muted)] text-[10px] mt-1 font-mono">Prisma / SQL</div>
+                  </div>
+                  <div className="bg-[var(--theme-elevated)] border border-[var(--theme-border-default)] p-4 rounded-xl text-center shadow-md">
+                    <div className="text-xl mb-2">📄</div>
+                    <div className="text-[var(--theme-text-primary)] font-bold text-sm">API Contracts</div>
+                    <div className="text-[var(--theme-text-muted)] text-[10px] mt-1 font-mono">OpenAPI / GraphQL</div>
+                  </div>
                 </div>
               </div>
+            </div>
+
+            {/* Impact Statement */}
+            <div className="mt-8 text-center px-4 w-full">
+               <p className="text-[var(--theme-accent)] font-semibold text-lg md:text-xl italic animate-fade-in-up shadow-sm inline-block px-6 py-3 rounded-full bg-[var(--theme-surface)] border border-[var(--theme-border-subtle)] backdrop-blur-sm">
+                 "From fragmented repositories to a single system-level intelligence layer."
+               </p>
             </div>
 
             {/* WHAT THIS UNLOCKS (Capabilities Strip) */}
@@ -595,34 +608,131 @@ export const LandingPage = () => {
           </div>
         </section>
 
-        {/* Tech Stack */}
-        <section className="py-24 px-6 bg-[var(--theme-void)]">
-          <div className="max-w-5xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-6 text-[var(--theme-text-primary)]" style={{ fontFamily: 'Archivo, sans-serif' }}>Engineered for Scale</h2>
-            <p className="text-[var(--theme-text-secondary)] text-md max-w-xl mx-auto mb-12">Leveraging the fastest modern tooling for C-native parsing, embedded graph operations, and client-side ML.</p>
+        {/* Tech Stack & Pipeline */}
+        <section className="py-24 px-6 bg-[var(--theme-void)] relative overflow-hidden">
+          <div className="max-w-6xl mx-auto">
+            {/* Headers */}
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-[var(--theme-text-primary)] tracking-tight" style={{ fontFamily: 'Archivo, sans-serif' }}>High-Performance Code Intelligence Engine</h2>
+              <p className="text-[var(--theme-text-secondary)] text-lg md:text-xl max-w-3xl mx-auto font-medium">PolytracerAI combines fast AST parsing, embedded graph databases, and client-side AI to analyze massive codebases in real time.</p>
+            </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-4 opacity-80">
-              <div className="bg-[var(--theme-surface)] hover:bg-[var(--theme-hover)] transition-colors border border-[var(--theme-border-default)] px-4 py-6 rounded-2xl flex flex-col items-center justify-center gap-3 shadow-sm">
-                <div className="text-2xl text-[var(--theme-text-primary)] mb-1">🌲</div>
-                <span className="font-bold text-[var(--theme-text-primary)] text-sm">Tree-sitter</span>
+            {/* Pipeline Visual */}
+            <div className="mb-24 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-2 relative">
+              <div className="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[var(--theme-border-default)] to-transparent -translate-y-1/2 z-0"></div>
+              
+              <div className="bg-[var(--theme-elevated)] border border-[var(--theme-border-default)] w-full md:w-auto px-6 py-4 rounded-2xl text-center z-10 shadow-md">
+                <div className="text-xl mb-2">💻</div>
+                <div className="font-bold text-[var(--theme-text-primary)] text-sm">Code</div>
               </div>
-              <div className="bg-[var(--theme-surface)] hover:bg-[var(--theme-hover)] transition-colors border border-[var(--theme-border-default)] px-4 py-6 rounded-2xl flex flex-col items-center justify-center gap-3 shadow-sm">
-                <div className="text-2xl text-[var(--theme-text-primary)] mb-1">🗄️</div>
-                <span className="font-bold text-[var(--theme-text-primary)] text-sm">KuzuDB</span>
+              <div className="text-[var(--theme-accent)] rotate-90 md:rotate-0 z-10">→</div>
+              <div className="bg-[var(--theme-elevated)] border border-[var(--theme-border-default)] w-full md:w-auto px-6 py-4 rounded-2xl text-center z-10 shadow-md">
+                <div className="text-xl mb-2">🌲</div>
+                <div className="font-bold text-[var(--theme-text-primary)] text-sm">AST Parsing</div>
               </div>
-              <div className="bg-[var(--theme-surface)] hover:bg-[var(--theme-hover)] transition-colors border border-[var(--theme-border-default)] px-4 py-6 rounded-2xl flex flex-col items-center justify-center gap-3 shadow-sm">
-                <div className="text-2xl text-[var(--theme-text-primary)] mb-1">🧠</div>
-                <span className="font-bold text-[var(--theme-text-primary)] text-sm">transformers.js</span>
+              <div className="text-[var(--theme-accent)] rotate-90 md:rotate-0 z-10">→</div>
+              <div className="bg-[var(--theme-elevated)] border border-[var(--theme-accent)] w-full md:w-auto px-6 py-4 rounded-2xl text-center z-10 shadow-[0_0_20px_rgba(29,155,240,0.2)]">
+                <div className="text-xl mb-2">🗄️</div>
+                <div className="font-bold text-[var(--theme-accent)] text-sm">Dependency Graph</div>
               </div>
-              <div className="bg-[var(--theme-surface)] hover:bg-[var(--theme-hover)] transition-colors border border-[var(--theme-border-default)] px-4 py-6 rounded-2xl flex flex-col items-center justify-center gap-3 shadow-sm">
-                <div className="text-2xl text-[var(--theme-text-primary)] mb-1">⚙️</div>
-                <span className="font-bold text-[var(--theme-text-primary)] text-sm">WebAssembly</span>
+              <div className="text-[var(--theme-accent)] rotate-90 md:rotate-0 z-10">→</div>
+              <div className="bg-[var(--theme-elevated)] border border-[var(--theme-border-default)] w-full md:w-auto px-6 py-4 rounded-2xl text-center z-10 shadow-md">
+                <div className="text-xl mb-2">🤖</div>
+                <div className="font-bold text-[var(--theme-text-primary)] text-sm">AI Reasoning</div>
               </div>
-              <div className="bg-[var(--theme-surface)] hover:bg-[var(--theme-hover)] transition-colors border border-[var(--theme-border-default)] px-4 py-6 rounded-2xl flex flex-col items-center justify-center gap-3 shadow-sm">
-                <div className="text-2xl text-[var(--theme-text-primary)] mb-1">🕸️</div>
-                <span className="font-bold text-[var(--theme-text-primary)] text-sm">Sigma.js</span>
+              <div className="text-[var(--theme-accent)] rotate-90 md:rotate-0 z-10">→</div>
+              <div className="bg-[var(--theme-elevated)] border border-[var(--theme-border-default)] w-full md:w-auto px-6 py-4 rounded-2xl text-center z-10 shadow-md">
+                <div className="text-xl mb-2">🕸️</div>
+                <div className="font-bold text-[var(--theme-text-primary)] text-sm">Visualization</div>
               </div>
             </div>
+
+            {/* Tech Capabilities Cards (Larger, more padding) */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+              <div className="bg-[var(--theme-surface)] hover:bg-[var(--theme-hover)] transition-all duration-300 border border-[var(--theme-border-default)] hover:border-[var(--theme-accent)]/50 p-8 rounded-3xl flex flex-col gap-4 shadow-sm hover:shadow-[0_0_30px_rgba(29,155,240,0.1)] group">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 bg-[var(--theme-elevated)] rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">🌲</div>
+                  <h3 className="font-bold text-xl text-[var(--theme-text-primary)]">Tree-sitter</h3>
+                </div>
+                <div>
+                  <h4 className="text-[var(--theme-accent)] text-sm font-semibold mb-2 uppercase tracking-wider">Fast Code Parsing</h4>
+                  <p className="text-[var(--theme-text-secondary)]">Parses multi-language codebases into structured ASTs instantly.</p>
+                </div>
+              </div>
+
+              <div className="bg-[var(--theme-surface)] hover:bg-[var(--theme-hover)] transition-all duration-300 border border-[var(--theme-border-default)] hover:border-[var(--theme-accent)]/50 p-8 rounded-3xl flex flex-col gap-4 shadow-sm hover:shadow-[0_0_30px_rgba(29,155,240,0.1)] group lg:scale-105 border-b-4 border-b-[var(--theme-accent)] relative z-10">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 bg-[var(--theme-elevated)] rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">🗄️</div>
+                  <h3 className="font-bold text-xl text-[var(--theme-text-primary)]">KuzuDB</h3>
+                </div>
+                <div>
+                  <h4 className="text-[var(--theme-accent)] text-sm font-semibold mb-2 uppercase tracking-wider">Graph Intelligence Engine</h4>
+                  <p className="text-[var(--theme-text-secondary)]">Embedded graph database for ultra-fast dependency traversal.</p>
+                </div>
+              </div>
+
+              <div className="bg-[var(--theme-surface)] hover:bg-[var(--theme-hover)] transition-all duration-300 border border-[var(--theme-border-default)] hover:border-[var(--theme-accent)]/50 p-8 rounded-3xl flex flex-col gap-4 shadow-sm hover:shadow-[0_0_30px_rgba(29,155,240,0.1)] group">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 bg-[var(--theme-elevated)] rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">🤖</div>
+                  <h3 className="font-bold text-xl text-[var(--theme-text-primary)]">transformers.js</h3>
+                </div>
+                <div>
+                  <h4 className="text-[var(--theme-accent)] text-sm font-semibold mb-2 uppercase tracking-wider">Local AI Inference</h4>
+                  <p className="text-[var(--theme-text-secondary)]">Runs ML models directly in the browser for private analysis.</p>
+                </div>
+              </div>
+
+              <div className="bg-[var(--theme-surface)] hover:bg-[var(--theme-hover)] transition-all duration-300 border border-[var(--theme-border-default)] hover:border-[var(--theme-accent)]/50 p-8 rounded-3xl flex flex-col gap-4 shadow-sm hover:shadow-[0_0_30px_rgba(29,155,240,0.1)] group lg:col-span-2 lg:mx-auto lg:w-3/4">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 bg-[var(--theme-elevated)] rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">⚡</div>
+                  <h3 className="font-bold text-xl text-[var(--theme-text-primary)]">WebAssembly</h3>
+                </div>
+                <div>
+                  <h4 className="text-[var(--theme-accent)] text-sm font-semibold mb-2 uppercase tracking-wider">Native-Speed Execution</h4>
+                  <p className="text-[var(--theme-text-secondary)]">Accelerates parsing and graph operations to near-native performance.</p>
+                </div>
+              </div>
+
+              <div className="bg-[var(--theme-surface)] hover:bg-[var(--theme-hover)] transition-all duration-300 border border-[var(--theme-border-default)] hover:border-[var(--theme-accent)]/50 p-8 rounded-3xl flex flex-col gap-4 shadow-sm hover:shadow-[0_0_30px_rgba(29,155,240,0.1)] group lg:col-span-1">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 bg-[var(--theme-elevated)] rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">🕸️</div>
+                  <h3 className="font-bold text-xl text-[var(--theme-text-primary)]">Sigma.js</h3>
+                </div>
+                <div>
+                  <h4 className="text-[var(--theme-accent)] text-sm font-semibold mb-2 uppercase tracking-wider">Interactive Graph Visualization</h4>
+                  <p className="text-[var(--theme-text-secondary)]">Renders large dependency graphs with smooth exploration.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Performance Metrics Strip */}
+            <div className="max-w-4xl mx-auto bg-gradient-to-br from-[var(--theme-surface)] to-[var(--theme-elevated)] border border-[var(--theme-border-default)] rounded-[2rem] p-8 md:p-12 shadow-xl">
+              <h3 className="text-center font-bold text-2xl mb-10 text-[var(--theme-text-primary)]" style={{ fontFamily: 'Archivo, sans-serif' }}>Enterprise-Grade Performance</h3>
+              <div className="flex flex-col md:flex-row gap-8 justify-between text-left">
+                 <div className="flex items-start gap-4 flex-1">
+                    <div className="text-2xl mt-1">⚡</div>
+                    <div>
+                      <h4 className="font-bold text-[var(--theme-text-primary)] text-lg mb-1">Blazing Fast Parsing</h4>
+                      <p className="text-[var(--theme-text-secondary)] text-sm font-medium">Parses 100k+ lines of code in seconds.</p>
+                    </div>
+                 </div>
+                 <div className="flex items-start gap-4 flex-1">
+                    <div className="text-2xl mt-1">📊</div>
+                    <div>
+                      <h4 className="font-bold text-[var(--theme-text-primary)] text-lg mb-1">Instant Traversal</h4>
+                      <p className="text-[var(--theme-text-secondary)] text-sm font-medium">Graph traversal in milliseconds.</p>
+                    </div>
+                 </div>
+                 <div className="flex items-start gap-4 flex-1">
+                    <div className="text-2xl mt-1">🧠</div>
+                    <div>
+                      <h4 className="font-bold text-[var(--theme-text-primary)] text-lg mb-1">Zero Latency AI</h4>
+                      <p className="text-[var(--theme-text-secondary)] text-sm font-medium">Local AI inference without cloud delays.</p>
+                    </div>
+                 </div>
+              </div>
+            </div>
+
           </div>
         </section>
 
@@ -645,11 +755,11 @@ export const LandingPage = () => {
                 </div>
 
                 <h2 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white to-[var(--theme-text-secondary)] mb-6 tracking-tight" style={{ fontFamily: 'Archivo, sans-serif' }}>
-                  Ready to master <br/> your codebase?
+                  Ready to understand <br/> your entire codebase?
                 </h2>
                 
                 <p className="text-[var(--theme-text-secondary)] text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-medium">
-                  Join developers using PolytraceAi to navigate complex repositories, understand legacy code, and accelerate onboarding. No credit card, no servers.
+                  Navigate massive codebases, understand hidden dependencies, and ship changes with confidence.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-5 w-full sm:w-auto">
