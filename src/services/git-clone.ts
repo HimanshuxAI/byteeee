@@ -63,7 +63,7 @@ export const cloneRepository = async (
   try {
     onProgress?.('cloning', 0);
 
-    // Clone with shallow depth for speed
+    // Clone with maximum speed optimizations
     await git.clone({
       fs,
       http,
@@ -71,6 +71,8 @@ export const cloneRepository = async (
       url: repoUrl,
       corsProxy: 'https://cors.isomorphic-git.org',
       depth: 1,
+      singleBranch: true,
+      noTags: true,
       // Auth callback for private repos (PAT stays client-side)
       onAuth: token ? () => ({ username: token, password: 'x-oauth-basic' }) : undefined,
       onProgress: (event) => {
@@ -110,60 +112,68 @@ export const cloneRepository = async (
 
 /**
  * Recursively read all files from a directory in the virtual filesystem
+ * Uses parallel reads for speed
  */
 const readAllFiles = async (baseDir: string, currentDir: string): Promise<FileEntry[]> => {
+  // First pass: collect all file paths
+  const filePaths: string[] = [];
+  await collectFilePaths(baseDir, currentDir, filePaths);
+
+  // Second pass: read files in parallel batches for speed
+  const BATCH_SIZE = 50;
   const files: FileEntry[] = [];
   
+  for (let i = 0; i < filePaths.length; i += BATCH_SIZE) {
+    const batch = filePaths.slice(i, i + BATCH_SIZE);
+    const results = await Promise.all(
+      batch.map(async (relativePath) => {
+        try {
+          const content = await pfs.readFile(`${baseDir}/${relativePath}`, { encoding: 'utf8' }) as string;
+          return { path: relativePath, content } as FileEntry;
+        } catch {
+          // Skip binary files or files that can't be read as text
+          return null;
+        }
+      })
+    );
+    files.push(...results.filter((f): f is FileEntry => f !== null));
+  }
+
+  return files;
+};
+
+/**
+ * Recursively collect all file paths (without reading content)
+ */
+const collectFilePaths = async (baseDir: string, currentDir: string, paths: string[]): Promise<void> => {
   let entries: string[];
   try {
     entries = await pfs.readdir(currentDir);
-  } catch (err) {
-    // Directory might not exist or be inaccessible
-    console.warn(`Cannot read directory: ${currentDir}`);
-    return files;
+  } catch {
+    return;
   }
 
   for (const entry of entries) {
-    // Skip .git directory
     if (entry === '.git') continue;
 
     const fullPath = `${currentDir}/${entry}`;
     const relativePath = fullPath.replace(`${baseDir}/`, '');
 
-    // Check ignore rules
     if (shouldIgnorePath(relativePath)) continue;
 
-    // Try to stat the file - skip if it fails (broken symlinks, etc.)
     let stat;
     try {
       stat = await pfs.stat(fullPath);
     } catch {
-      // Skip files that can't be stat'd (broken symlinks, permission issues)
-      if (import.meta.env.DEV) {
-        console.warn(`Skipping unreadable entry: ${relativePath}`);
-      }
       continue;
     }
 
     if (stat.isDirectory()) {
-      // Recurse into subdirectory
-      const subFiles = await readAllFiles(baseDir, fullPath);
-      files.push(...subFiles);
+      await collectFilePaths(baseDir, fullPath, paths);
     } else {
-      // Read file content
-      try {
-        const content = await pfs.readFile(fullPath, { encoding: 'utf8' }) as string;
-        files.push({
-          path: relativePath,
-          content,
-        });
-      } catch {
-        // Skip binary files or files that can't be read as text
-      }
+      paths.push(relativePath);
     }
   }
-
-  return files;
 };
 
 /**

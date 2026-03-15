@@ -43,8 +43,39 @@ export const LandingPage = () => {
 
           <div className="flex items-center gap-4 relative">
             <a href="https://github.com/HimanshuxAI/byteeee" target="_blank" rel="noopener noreferrer" className="hidden sm:flex items-center gap-2 text-sm font-medium text-[var(--theme-text-secondary)] hover:text-[var(--theme-text-primary)] transition-colors">
-              <span>⭐ GitHub <span className="font-mono text-xs opacity-80 pl-1">1.2k</span></span>
+              <span>⭐ GitHub <span className="font-mono text-xs opacity-80 pl-1"></span></span>
             </a>
+
+            {/* Theme Switcher */}
+            <div className="relative">
+              <button
+                onClick={() => setIsThemeMenuOpen(!isThemeMenuOpen)}
+                className="flex items-center gap-1.5 px-2 py-1.5 rounded-md border border-transparent hover:border-[var(--theme-border-default)] hover:bg-[var(--theme-hover)] text-[var(--theme-text-secondary)] hover:text-[var(--theme-text-primary)] transition-all"
+                title="Change Theme"
+              >
+                <div className="w-4 h-4 rounded-full border border-[var(--theme-border-default)] flex items-center justify-center p-[2px]">
+                  <div className={`w-full h-full rounded-full ${theme === 'dark' ? 'bg-[#1D9BF0]' : 'bg-[#d97706]'}`} />
+                </div>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`transition-transform ${isThemeMenuOpen ? 'rotate-180' : ''}`}>
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+
+              {isThemeMenuOpen && (
+                <div className="absolute top-full right-0 mt-2 w-36 rounded-xl border border-[var(--theme-border-subtle)] bg-[var(--theme-elevated)] shadow-xl overflow-hidden flex flex-col z-50 text-sm">
+                  {(['dark', 'white'] as AppTheme[]).map((t) => (
+                    <button
+                      key={t}
+                      onClick={() => { setTheme(t); setIsThemeMenuOpen(false); }}
+                      className={`flex items-center gap-3 px-3 py-2.5 hover:bg-[var(--theme-hover)] transition-colors ${theme === t ? 'bg-[var(--theme-hover)]' : ''}`}
+                    >
+                      <div className={`w-3 h-3 rounded-full ${t === 'dark' ? 'bg-[#1D9BF0]' : 'bg-[#d97706]'}`} />
+                      <span className="capitalize text-[var(--theme-text-primary)] font-medium text-xs">{t}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
 
             <button onClick={handleLaunchApp} className="bg-blue-500 text-white px-5 py-2 rounded-lg text-sm font-bold hover:bg-blue-400 transition-colors shadow-[0_0_15px_rgba(59,130,246,0.3)] active:scale-95">
               Open App
@@ -81,17 +112,17 @@ export const LandingPage = () => {
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
-              <button 
-                onClick={handleLaunchApp} 
+              <button
+                onClick={handleLaunchApp}
                 className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[var(--theme-accent)] text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[var(--theme-accent-dim)] shadow-lg shadow-[var(--theme-accent)]/20 active:scale-95 transition-all"
               >
                 Start Exploring Your Codebase
                 <span>→</span>
               </button>
-              <a 
-                href="https://github.com/HimanshuxAI/byteeee" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://github.com/HimanshuxAI/byteeee"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[var(--theme-surface)] border-2 border-[var(--theme-border-default)] text-[var(--theme-text-primary)] px-8 py-4 rounded-xl font-bold text-lg hover:border-[var(--theme-text-primary)] hover:bg-[var(--theme-hover)] transition-all active:scale-95"
               >
                 View on GitHub
@@ -439,7 +470,7 @@ export const LandingPage = () => {
         <section className="py-24 px-6 border-b border-[var(--theme-border-default)] relative overflow-hidden">
           {/* Subtle background glow for the whole section */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[var(--theme-accent)]/5 rounded-full blur-[100px] pointer-events-none -z-10"></div>
-          
+
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-[var(--theme-text-primary)] tracking-tight" style={{ fontFamily: 'Archivo, sans-serif' }}>
@@ -452,7 +483,7 @@ export const LandingPage = () => {
 
             {/* Architecture Diagram (Larger, 70% focus, tightened flow) */}
             <div className="w-full md:w-[85%] mx-auto bg-[var(--theme-surface)]/50 backdrop-blur-sm border border-[var(--theme-border-default)] rounded-[2.5rem] p-8 md:p-12 shadow-2xl relative">
-              
+
               {/* Top Layer: Editor / Agent */}
               <div className="flex justify-center mb-3 relative z-10">
                 <div className="bg-[var(--theme-elevated)] border border-[var(--theme-border-default)] px-8 py-4 rounded-2xl shadow-sm">
@@ -472,13 +503,13 @@ export const LandingPage = () => {
               <div className="flex justify-center mb-3 mt-4 relative group z-10">
                 <div className="absolute -inset-2 bg-gradient-to-r from-[var(--theme-accent)] to-purple-500 rounded-3xl blur-xl opacity-30 group-hover:opacity-60 transition duration-1000 animate-pulse-glow"></div>
                 <div className="relative bg-[#1A1E24] border-2 border-[var(--theme-accent)] w-full max-w-md rounded-3xl shadow-[0_0_50px_rgba(29,155,240,0.2)] overflow-hidden">
-                  
+
                   {/* Internal top header representing the server bounding */}
                   <div className="bg-[var(--theme-void)] border-b border-[var(--theme-border-subtle)] px-6 py-3 flex items-center justify-between">
-                     <span className="font-mono text-xs text-[var(--theme-text-secondary)] tracking-wider">Polytracer Server</span>
-                     <div className="flex gap-1.5">
-                       <span className="w-2 h-2 rounded-full bg-[var(--theme-accent)]/80 animate-pulse"></span>
-                     </div>
+                    <span className="font-mono text-xs text-[var(--theme-text-secondary)] tracking-wider">Polytracer Server</span>
+                    <div className="flex gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-[var(--theme-accent)]/80 animate-pulse"></span>
+                    </div>
                   </div>
 
                   {/* Internal core capabilities */}
@@ -487,7 +518,7 @@ export const LandingPage = () => {
                       Polytrace Engine
                     </h3>
                     <div className="flex items-center justify-center gap-2 text-sm text-[var(--theme-text-secondary)] font-medium bg-black/30 rounded-full px-4 py-1.5 border border-white/5 inline-flex mb-4">
-                       <span className="text-[var(--theme-accent)]">⚡</span> Cross-Repo Graph
+                      <span className="text-[var(--theme-accent)]">⚡</span> Cross-Repo Graph
                     </div>
                     <div className="flex justify-center mt-2 gap-2">
                       <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -537,9 +568,9 @@ export const LandingPage = () => {
 
             {/* Impact Statement */}
             <div className="mt-8 text-center px-4 w-full">
-               <p className="text-[var(--theme-accent)] font-semibold text-lg md:text-xl italic animate-fade-in-up shadow-sm inline-block px-6 py-3 rounded-full bg-[var(--theme-surface)] border border-[var(--theme-border-subtle)] backdrop-blur-sm">
-                 "From fragmented repositories to a single system-level intelligence layer."
-               </p>
+              <p className="text-[var(--theme-accent)] font-semibold text-lg md:text-xl italic animate-fade-in-up shadow-sm inline-block px-6 py-3 rounded-full bg-[var(--theme-surface)] border border-[var(--theme-border-subtle)] backdrop-blur-sm">
+                "From fragmented repositories to a single system-level intelligence layer."
+              </p>
             </div>
 
             {/* WHAT THIS UNLOCKS (Capabilities Strip) */}
@@ -547,7 +578,7 @@ export const LandingPage = () => {
               <h3 className="text-sm font-bold text-[var(--theme-text-secondary)] uppercase tracking-[0.2em] text-center mb-10 border-b border-[var(--theme-border-subtle)] pb-4 max-w-xs mx-auto">
                 What This Unlocks
               </h3>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
                 <div className="bg-[var(--theme-surface)] p-6 rounded-2xl border border-[var(--theme-border-default)] hover:border-[var(--theme-accent)] transition-colors">
                   <div className="w-12 h-12 bg-red-500/10 text-red-500 rounded-xl flex items-center justify-center text-xl mb-5">💥</div>
@@ -590,7 +621,7 @@ export const LandingPage = () => {
             {/* Pipeline Visual */}
             <div className="mb-24 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-2 relative">
               <div className="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[var(--theme-border-default)] to-transparent -translate-y-1/2 z-0"></div>
-              
+
               <div className="bg-[var(--theme-elevated)] border border-[var(--theme-border-default)] w-full md:w-auto px-6 py-4 rounded-2xl text-center z-10 shadow-md">
                 <div className="text-xl mb-2">💻</div>
                 <div className="font-bold text-[var(--theme-text-primary)] text-sm">Code</div>
@@ -679,27 +710,27 @@ export const LandingPage = () => {
             <div className="max-w-4xl mx-auto bg-gradient-to-br from-[var(--theme-surface)] to-[var(--theme-elevated)] border border-[var(--theme-border-default)] rounded-[2rem] p-8 md:p-12 shadow-xl">
               <h3 className="text-center font-bold text-2xl mb-10 text-[var(--theme-text-primary)]" style={{ fontFamily: 'Archivo, sans-serif' }}>Enterprise-Grade Performance</h3>
               <div className="flex flex-col md:flex-row gap-8 justify-between text-left">
-                 <div className="flex items-start gap-4 flex-1">
-                    <div className="text-2xl mt-1">⚡</div>
-                    <div>
-                      <h4 className="font-bold text-[var(--theme-text-primary)] text-lg mb-1">Blazing Fast Parsing</h4>
-                      <p className="text-[var(--theme-text-secondary)] text-sm font-medium">Parses 100k+ lines of code in seconds.</p>
-                    </div>
-                 </div>
-                 <div className="flex items-start gap-4 flex-1">
-                    <div className="text-2xl mt-1">📊</div>
-                    <div>
-                      <h4 className="font-bold text-[var(--theme-text-primary)] text-lg mb-1">Instant Traversal</h4>
-                      <p className="text-[var(--theme-text-secondary)] text-sm font-medium">Graph traversal in milliseconds.</p>
-                    </div>
-                 </div>
-                 <div className="flex items-start gap-4 flex-1">
-                    <div className="text-2xl mt-1">🧠</div>
-                    <div>
-                      <h4 className="font-bold text-[var(--theme-text-primary)] text-lg mb-1">Zero Latency AI</h4>
-                      <p className="text-[var(--theme-text-secondary)] text-sm font-medium">Local AI inference without cloud delays.</p>
-                    </div>
-                 </div>
+                <div className="flex items-start gap-4 flex-1">
+                  <div className="text-2xl mt-1">⚡</div>
+                  <div>
+                    <h4 className="font-bold text-[var(--theme-text-primary)] text-lg mb-1">Blazing Fast Parsing</h4>
+                    <p className="text-[var(--theme-text-secondary)] text-sm font-medium">Parses 100k+ lines of code in seconds.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4 flex-1">
+                  <div className="text-2xl mt-1">📊</div>
+                  <div>
+                    <h4 className="font-bold text-[var(--theme-text-primary)] text-lg mb-1">Instant Traversal</h4>
+                    <p className="text-[var(--theme-text-secondary)] text-sm font-medium">Graph traversal in milliseconds.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4 flex-1">
+                  <div className="text-2xl mt-1">🧠</div>
+                  <div>
+                    <h4 className="font-bold text-[var(--theme-text-primary)] text-lg mb-1">Zero Latency AI</h4>
+                    <p className="text-[var(--theme-text-secondary)] text-sm font-medium">Local AI inference without cloud delays.</p>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -711,9 +742,9 @@ export const LandingPage = () => {
           <div className="max-w-5xl mx-auto relative group">
             {/* Animated Glow Effect behind the main card (widened horizontally) */}
             <div className="absolute -inset-2 bg-gradient-to-r from-[var(--theme-accent)] to-purple-600 rounded-[3rem] blur-xl opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200 animate-pulse-glow"></div>
-            
+
             <div className="relative bg-[var(--theme-elevated)]/90 backdrop-blur-xl rounded-[2.5rem] border border-[var(--theme-border-default)] shadow-2xl px-6 py-16 md:p-20 text-center overflow-hidden">
-              
+
               {/* Internal decorative gradients & graph visual */}
               <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, var(--theme-text-primary) 1px, transparent 0)', backgroundSize: '32px 32px' }}></div>
               <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/3 w-96 h-96 bg-[var(--theme-accent)]/20 rounded-full blur-[80px] pointer-events-none"></div>
@@ -721,14 +752,14 @@ export const LandingPage = () => {
 
               {/* Faint Abstract Graph Nodes Behind Text */}
               <svg className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-5 pointer-events-none" viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                 <circle cx="200" cy="100" r="10" fill="currentColor"/>
-                 <circle cx="600" cy="80" r="15" fill="currentColor"/>
-                 <circle cx="400" cy="300" r="12" fill="currentColor"/>
-                 <circle cx="300" cy="200" r="8" fill="currentColor"/>
-                 <line x1="200" y1="100" x2="300" y2="200" stroke="currentColor" strokeWidth="2"/>
-                 <line x1="300" y1="200" x2="400" y2="300" stroke="currentColor" strokeWidth="2"/>
-                 <line x1="600" y1="80" x2="400" y2="300" stroke="currentColor" strokeWidth="2"/>
-                 <line x1="200" y1="100" x2="600" y2="80" stroke="currentColor" strokeWidth="2" strokeDasharray="4 4"/>
+                <circle cx="200" cy="100" r="10" fill="currentColor" />
+                <circle cx="600" cy="80" r="15" fill="currentColor" />
+                <circle cx="400" cy="300" r="12" fill="currentColor" />
+                <circle cx="300" cy="200" r="8" fill="currentColor" />
+                <line x1="200" y1="100" x2="300" y2="200" stroke="currentColor" strokeWidth="2" />
+                <line x1="300" y1="200" x2="400" y2="300" stroke="currentColor" strokeWidth="2" />
+                <line x1="600" y1="80" x2="400" y2="300" stroke="currentColor" strokeWidth="2" />
+                <line x1="200" y1="100" x2="600" y2="80" stroke="currentColor" strokeWidth="2" strokeDasharray="4 4" />
               </svg>
 
               <div className="relative z-10 flex flex-col items-center">
@@ -738,42 +769,42 @@ export const LandingPage = () => {
                 </div>
 
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white to-[var(--theme-text-secondary)] mb-6 tracking-tight" style={{ fontFamily: 'Archivo, sans-serif' }}>
-                  Start Exploring Your<br/>Codebase in Seconds
+                  Start Exploring Your<br />Codebase in Seconds
                 </h2>
-                
+
                 <p className="text-[var(--theme-text-secondary)] text-lg md:text-xl max-w-3xl mx-auto mb-10 leading-relaxed font-medium">
                   PolytraceAI builds a global dependency graph across your repositories so you can trace dependencies, detect blast radius, and understand your system instantly.
                 </p>
 
                 {/* 3-Point Value Row */}
                 <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-12 w-full max-w-4xl mx-auto">
-                   <div className="flex items-center gap-3 bg-[var(--theme-surface)]/50 px-4 py-2.5 rounded-xl border border-[var(--theme-border-subtle)] shadow-sm backdrop-blur-sm whitespace-nowrap">
-                     <span className="text-xl">⚡</span>
-                     <span className="text-sm font-bold text-[var(--theme-text-primary)] tracking-wide">Index massive repositories instantly</span>
-                   </div>
-                   <div className="flex items-center gap-3 bg-[var(--theme-surface)]/50 px-4 py-2.5 rounded-xl border border-[var(--theme-border-subtle)] shadow-sm backdrop-blur-sm whitespace-nowrap">
-                     <span className="text-xl">🔎</span>
-                     <span className="text-sm font-bold text-[var(--theme-text-primary)] tracking-wide">Trace dependencies across services</span>
-                   </div>
-                   <div className="flex items-center gap-3 bg-[var(--theme-surface)]/50 px-4 py-2.5 rounded-xl border border-[var(--theme-border-subtle)] shadow-sm backdrop-blur-sm whitespace-nowrap">
-                     <span className="text-xl">💥</span>
-                     <span className="text-sm font-bold text-[var(--theme-text-primary)] tracking-wide">Predict blast radius before shipping</span>
-                   </div>
+                  <div className="flex items-center gap-3 bg-[var(--theme-surface)]/50 px-4 py-2.5 rounded-xl border border-[var(--theme-border-subtle)] shadow-sm backdrop-blur-sm whitespace-nowrap">
+                    <span className="text-xl">⚡</span>
+                    <span className="text-sm font-bold text-[var(--theme-text-primary)] tracking-wide">Index massive repositories instantly</span>
+                  </div>
+                  <div className="flex items-center gap-3 bg-[var(--theme-surface)]/50 px-4 py-2.5 rounded-xl border border-[var(--theme-border-subtle)] shadow-sm backdrop-blur-sm whitespace-nowrap">
+                    <span className="text-xl">🔎</span>
+                    <span className="text-sm font-bold text-[var(--theme-text-primary)] tracking-wide">Trace dependencies across services</span>
+                  </div>
+                  <div className="flex items-center gap-3 bg-[var(--theme-surface)]/50 px-4 py-2.5 rounded-xl border border-[var(--theme-border-subtle)] shadow-sm backdrop-blur-sm whitespace-nowrap">
+                    <span className="text-xl">💥</span>
+                    <span className="text-sm font-bold text-[var(--theme-text-primary)] tracking-wide">Predict blast radius before shipping</span>
+                  </div>
                 </div>
-                
+
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-5 w-full sm:w-auto">
-                  <button 
-                    onClick={handleLaunchApp} 
+                  <button
+                    onClick={handleLaunchApp}
                     className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[var(--theme-accent)] text-white px-10 py-5 rounded-xl font-bold text-lg hover:bg-[var(--theme-accent-dim)] transition-all shadow-lg shadow-[var(--theme-accent)]/25 hover:shadow-[var(--theme-accent)]/40 hover:-translate-y-1 active:scale-95 border border-white/10"
                   >
                     Explore Your Codebase
                     <span className="group-hover:translate-x-1 transition-transform">→</span>
                   </button>
-                  
-                  <a 
-                    href="https://github.com/HimanshuxAI/byteeee" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
+
+                  <a
+                    href="https://github.com/HimanshuxAI/byteeee"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-full sm:w-auto flex items-center justify-center gap-3 bg-[var(--theme-surface)] hover:bg-[var(--theme-hover)] border border-[var(--theme-border-default)] hover:border-[var(--theme-text-primary)] text-[var(--theme-text-primary)] px-8 py-5 rounded-xl transition-all shadow-sm hover:shadow-md hover:-translate-y-1 active:scale-95"
                   >
                     <svg height="24" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true" className="fill-current">
@@ -788,9 +819,9 @@ export const LandingPage = () => {
 
                 {/* Trust/Credibility Footer */}
                 <div className="mt-12 pt-6 border-t border-[var(--theme-border-subtle)] w-full max-w-lg mx-auto">
-                   <p className="text-[var(--theme-text-secondary)] text-xs md:text-sm font-semibold uppercase tracking-[0.15em] flex items-center justify-center gap-3">
-                     <span>Open-source</span> • <span>Local-first</span> • <span>Built for polyglot codebases</span>
-                   </p>
+                  <p className="text-[var(--theme-text-secondary)] text-xs md:text-sm font-semibold uppercase tracking-[0.15em] flex items-center justify-center gap-3">
+                    <span>Open-source</span> • <span>Local-first</span> • <span>Built for polyglot codebases</span>
+                  </p>
                 </div>
 
               </div>
@@ -806,7 +837,7 @@ export const LandingPage = () => {
         <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-[100px] pointer-events-none -z-10"></div>
 
         <div className="max-w-7xl mx-auto flex flex-col items-center justify-center text-center gap-8 z-10 relative">
-          
+
           <div className="flex flex-col items-center gap-3">
             <div className="flex items-center gap-2 opacity-90 hover:opacity-100 transition-opacity">
               <div className="w-8 h-8 rounded-lg bg-[var(--theme-elevated)] text-[var(--theme-text-primary)] flex items-center justify-center border border-[var(--theme-border-subtle)] shadow-inner">
@@ -822,7 +853,7 @@ export const LandingPage = () => {
             </div>
             <p className="text-sm md:text-base font-medium text-[var(--theme-text-secondary)]">Dependency Graph Intelligence for Polyglot Codebases</p>
           </div>
-          
+
           <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-4 text-sm font-semibold text-[var(--theme-text-secondary)] mt-2">
             <a href="https://github.com/HimanshuxAI/byteeee" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--theme-text-primary)] transition-colors flex items-center gap-2">
               GitHub
@@ -831,7 +862,7 @@ export const LandingPage = () => {
             <a href="#" className="hover:text-[var(--theme-text-primary)] transition-colors">Changelog</a>
             <a href="https://github.com/HimanshuxAI/byteeee/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--theme-text-primary)] transition-colors">License</a>
           </div>
-          
+
           <div className="text-sm font-medium text-[var(--theme-text-muted)] mt-4">
             &copy; 2026 PolytraceAi.
           </div>
